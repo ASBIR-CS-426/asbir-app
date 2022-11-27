@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/asbir-app" element={<Home />}></Route>
-        <Route path="/asbir-app/dashboard" element={<Dashboard />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </div>
   );
