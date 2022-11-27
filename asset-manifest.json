@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/asbir-app/static/css/main.abd2cd6c.css",
-    "main.js": "/asbir-app/static/js/main.77d3527f.js",
+    "main.js": "/asbir-app/static/js/main.e636e556.js",
     "index.html": "/asbir-app/index.html",
     "main.abd2cd6c.css.map": "/asbir-app/static/css/main.abd2cd6c.css.map",
-    "main.77d3527f.js.map": "/asbir-app/static/js/main.77d3527f.js.map"
+    "main.e636e556.js.map": "/asbir-app/static/js/main.e636e556.js.map"
   },
   "entrypoints": [
     "static/css/main.abd2cd6c.css",
-    "static/js/main.77d3527f.js"
+    "static/js/main.e636e556.js"
   ]
 }
