@@ -11,6 +11,7 @@ export const Home = () => {
     const toggleForm = (formName: string) => {
       setCurrentForm(formName);
     }
+
     return (
         <div className = "Home">
             {

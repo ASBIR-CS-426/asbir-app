@@ -48,3 +48,10 @@
     color: white;
     text-decoration: underline;
   }
+
+  .login-unsuccessful {
+    color: red !important;
+  }
+  /* div {
+    background-image: linear-gradient(79deg, #9c0505, #000000 48%, #fdfdfd) !important;
+  } */

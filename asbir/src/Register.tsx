@@ -9,6 +9,22 @@ export const Register = (props: RegisterProps) => {
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
 
+    const loginInfo = [
+        {
+            username: 'brock',
+            password: '123'
+        }, 
+        {
+            username: 'tanner',
+            password: 'password'
+        },
+        {
+            username: 'annette',
+            password: 'machinelearning'
+        }
+    ]
+    
+
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         console.log(email);
