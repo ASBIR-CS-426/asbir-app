@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 
 interface LoginFormProps {
-  onFormSwitch: Function
+  onFormSwitch: Function,
+  onSubmit: Function
 }
 
 
@@ -44,7 +45,7 @@ export const LoginForm = (props: LoginFormProps) => {
         else {
             setSuccesful(-1)
         }
-
+        console.log(successful)
     }
 
     return (
@@ -55,7 +56,7 @@ export const LoginForm = (props: LoginFormProps) => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                 <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                <button type="submit">Log In</button>
+                <button type="submit" onClick={() => props.onSubmit(((successful < 0) ? 'not success' : 'success'))}>Log In</button>
             </form>
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
             {successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
