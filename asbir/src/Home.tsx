@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LoginForm } from "./LoginForm";
 import { Register } from "./Register";
 
@@ -7,25 +7,28 @@ import './Home.css';
 
 export const Home = () => {
     const [currentForm, setCurrentForm] = useState('login');
-    const [success, setSuccess] = useState(false)
+    const [success, setSuccess] = useState(0)
+    // const [className, setClassName] = useState<string>("Home");
 
     const toggleForm = (formName: string) => {
       setCurrentForm(formName);
     }
 
     const toggleSuccess = (flag: string) => {
+        console.log(flag);
         if (flag === 'success') {
-            setSuccess(true);
+            setSuccess(success + 1);
         }
         else {
-            setSuccess(false);
+            setSuccess(success);
         }
     }
-
-    console.log(document.querySelector(".login-unsuccessful"))
-    let className = success ? "Home_Not": "Home"
+    // useEffect(() => {
+    //     setClassName(document.querySelector(".login-unsuccessful") ? "Home_Not": "Home")
+    //     console.log(className);
+    // }, [className, setClassName, toggleSuccess])
     return (
-        <div className={className}>
+        <div className={(success === 0) ? "Home" : "Home_Not"}>
             {
                 currentForm === "login" ? <LoginForm onFormSwitch={toggleForm} onSubmit={toggleSuccess}/> : <Register onFormSwitch={toggleForm} />
             }

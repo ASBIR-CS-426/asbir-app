@@ -1,4 +1,5 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface LoginFormProps {
   onFormSwitch: Function,
@@ -7,9 +8,11 @@ interface LoginFormProps {
 
 
 export const LoginForm = (props: LoginFormProps) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    const [successful, setSuccesful] = useState(0);
+    const [email, setEmail] = useState<string>('');
+    const [pass, setPass] = useState<string>('');
+    const [successful, setSuccesful] = useState<number>(0);
+
+    const navigate = useNavigate();
 
     const loginInfo = [
         {
@@ -34,20 +37,26 @@ export const LoginForm = (props: LoginFormProps) => {
         }
         return false;
     }
-    
 
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
         if (checkLogin(email, pass)) {
-            setSuccesful(1)
+            console.log(email);
+            console.log(pass);
+            setSuccesful(1);
+            navigate("/dashboard")
         }
         else {
-            setSuccesful(-1)
+            setSuccesful(-1);
         }
-        console.log(successful)
     }
 
+    useEffect(() => {
+        console.log('Successful: ', successful);
+        setSuccesful(successful);
+      }, [successful])
+    // onClick={async () => props.onSubmit(((successful === -1) ? 'not success' : 'success'))
     return (
         <div className="auth-form-container">
             <h2 id="login-text">Login</h2>
@@ -56,7 +65,7 @@ export const LoginForm = (props: LoginFormProps) => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                 <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                <button type="submit" onClick={() => props.onSubmit(((successful < 0) ? 'not success' : 'success'))}>Log In</button>
+                <button type="submit" onClick={() => props.onSubmit(((successful < 0) ? 'not success' : 'success'))}>Log In</button> 
             </form>
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
             {successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
