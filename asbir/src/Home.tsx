@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { LoginForm } from "./LoginForm";
 import { Register } from "./Register";
@@ -23,12 +22,9 @@ export const Home = () => {
             setSuccess(success);
         }
     }
-    // useEffect(() => {
-    //     setClassName(document.querySelector(".login-unsuccessful") ? "Home_Not": "Home")
-    //     console.log(className);
-    // }, [className, setClassName, toggleSuccess])
     return (
         <div className={(success === 0) ? "Home" : "Home_Not"}>
+            <h1 className="welcome">Welcome to the ASBIR Web App</h1>
             {
                 currentForm === "login" ? <LoginForm onFormSwitch={toggleForm} onSubmit={toggleSuccess}/> : <Register onFormSwitch={toggleForm} />
             }
