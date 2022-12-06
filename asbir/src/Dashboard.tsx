@@ -1,7 +1,12 @@
 import React from 'react';
+import { NavBar } from './NavBar'
+
+import './Dashboard.css'
 
 export const Dashboard = () => {
     return (
-        <h1>This is the dashboard!</h1>
+        <div className='Dashboard'>
+            <NavBar></NavBar>
+        </div>
     )
 };
