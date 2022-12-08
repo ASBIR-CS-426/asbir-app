@@ -27,7 +27,6 @@ export const Register = (props: RegisterProps) => {
 
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        console.log(email);
     }
 
     return (

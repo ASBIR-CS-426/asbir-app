@@ -1,9 +1,39 @@
 import React from 'react';
-
-import './NavBar.css'
-
-export const NavBar = () => {
-    return (
-        <h1>This is the (soon to be) dashboard</h1>
-    )
+import {
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from './NavbarElements';
+  
+const Navbar = () => {
+  return (
+    <>
+      <Nav>
+        <Bars />
+  
+        <NavMenu>
+          <NavLink to='/about'>
+            About
+          </NavLink>
+          <NavLink to='/events'>
+            Events
+          </NavLink>
+          <NavLink to='/annual'>
+            Annual Report
+          </NavLink>
+          <NavLink to='/team'>
+            Teams
+          </NavLink>
+          <NavLink to='/blogs'>
+            Blogs
+          </NavLink>
+        </NavMenu>
+      </Nav>
+    </>
+  );
 };
+  
+export default Navbar;
