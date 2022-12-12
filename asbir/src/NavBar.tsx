@@ -7,20 +7,29 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
+
+interface NavBarProps {
+  firstLink: string,
+  firstInfo: string,
+  secondLink: string,
+  secondInfo: string,
+  thirdLink: string,
+  thirdInfo: string,
+}
   
-const Navbar = () => {
+const Navbar = (props: NavBarProps) => {
   return (
     <Nav>
       <Bars />  
       <NavMenu>
-        <NavLink to='/error-log'>
-          Error Log
+        <NavLink to={props.firstLink}>
+          {props.firstInfo}
         </NavLink>
-        <NavLink to='/faq'>
-          FAQ
+        <NavLink to={props.secondLink}>
+          {props.secondInfo}
         </NavLink>
-        <NavLink to='/inspection-database'>
-          Inspection Database
+        <NavLink to={props.thirdLink}>
+          {props.thirdInfo}
         </NavLink>
       </NavMenu>
     </Nav>

@@ -1,22 +1,23 @@
 import React from 'react';
+
 import Navbar from './Navbar'
 
-import './Dashboard.css'
+import './ErrorLog.css'
 
 const NavBarProps = {
-    firstLink: '/error-log',
-    firstInfo: 'Error Log',
+    firstLink: '/dashboard',
+    firstInfo: 'Dashboard',
     secondLink: '/faq',
     secondInfo: 'FAQ',
     thirdLink: '/inspection-database',
     thirdInfo: 'Inspection Database',
 }
 
-export const Dashboard = () => {
+export const ErrorLog = () => {
     return (
-        <div className='Dashboard'>
-            <Navbar {...NavBarProps}></Navbar>
-            <h1>This is the Dashboard</h1>
+        <div className='ErrorLog'>
+            <Navbar {...NavBarProps} />
+            <h1>This is the Error Log</h1>
         </div>
     )
 };
