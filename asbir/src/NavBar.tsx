@@ -10,29 +10,20 @@ import {
   
 const Navbar = () => {
   return (
-    <>
-      <Nav>
-        <Bars />
-  
-        <NavMenu>
-          <NavLink to='/about'>
-            About
-          </NavLink>
-          <NavLink to='/events'>
-            Events
-          </NavLink>
-          <NavLink to='/annual'>
-            Annual Report
-          </NavLink>
-          <NavLink to='/team'>
-            Teams
-          </NavLink>
-          <NavLink to='/blogs'>
-            Blogs
-          </NavLink>
-        </NavMenu>
-      </Nav>
-    </>
+    <Nav>
+      <Bars />  
+      <NavMenu>
+        <NavLink to='/error-log'>
+          Error Log
+        </NavLink>
+        <NavLink to='/faq'>
+          FAQ
+        </NavLink>
+        <NavLink to='/inspection-database'>
+          Inspection Database
+        </NavLink>
+      </NavMenu>
+    </Nav>
   );
 };
   
