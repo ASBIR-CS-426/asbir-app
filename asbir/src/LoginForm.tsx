@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { signInWithGoogle } from "./Firebase";
 
 interface LoginFormProps {
   onFormSwitch: Function,
@@ -67,7 +68,8 @@ export const LoginForm = (props: LoginFormProps) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
                 <button type="submit" onClick={() => props.onSubmit(((successful < 0) ? 'not success' : 'success'))}>Log In</button> 
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Forgot your password? Use SSO</button>
+            {/* <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Forgot your password? Use SSO</button> */}
+            <button className="link-btn" onClick={signInWithGoogle}>Sign In With Google</button>
             {successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
         </div>
     )
