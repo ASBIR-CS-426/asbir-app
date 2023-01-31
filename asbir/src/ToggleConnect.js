@@ -25,7 +25,19 @@ const ToggleConnect = () => {
               ros.on('close', function() {
                 console.log('Connection to websocket server closed.');
               });
+              
+              var listener = new ROSLIB.Topic({
+                ros : ros,
+                name : '/listener',
+                messageType : 'std_msgs/String'
+              });
+            
+            listener.subscribe(function(message) {
+                console.log('Received message on ' + listener.name + ': ' + message.data);
+                listener.unsubscribe();
+              });
             }}>Toggle Connect</button>  <br />
+
           {/* <p>
             <b>Simple connect:  </b><button onClick={() =>{
               toggleConnection()
