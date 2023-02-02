@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react'
 import ROSLIB from 'roslib'
-// import { useROS } from 'react-ros'
 
 const ToggleConnect = () => {
     // let { isConnected, url, changeUrl, toggleConnection } = useROS();
-    let url = '127.0.0.1:9090'
+
+    useEffect(() => {
+    })
 
     return (
         <div>
@@ -37,6 +38,23 @@ const ToggleConnect = () => {
                 listener.unsubscribe();
               });
             }}>Toggle Connect</button>  <br />
+
+            <button onClick={() => {
+              var ros = new ROSLIB.Ros({
+                url : 'ws://localhost:9090'
+              });
+              let image_topic = new ROSLIB.Topic({
+                ros: ros, 
+                name: '/stream1/image/compressed',
+                messageType: 'sensor_msgs/CompressedImage'
+              });
+              image_topic.subscribe(function(message) {
+                document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
+                image_topic.unsubscribe();
+              });
+            }}>Click for New Image</button>
+
+            <img alt='placeholder for ASBIR' id="my_image" src="assets/img/placeholder.png"></img>
 
           {/* <p>
             <b>Simple connect:  </b><button onClick={() =>{
