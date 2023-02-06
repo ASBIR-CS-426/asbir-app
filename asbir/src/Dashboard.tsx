@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar'
 import { useEffect } from 'react';
-//import { ToggleConnect } from './ToggleConnect'
 import ToggleConnect from "./ToggleConnect"
+import { Navigate } from 'react-router-dom';
+
 
 import './Dashboard.css'
 
@@ -19,14 +20,21 @@ const NavBarProps = {
 export const Dashboard = () => {
 
     useEffect(() => {
-
+        console.log(!!localStorage.getItem("name"))
     })
 
-    return (
-        <div className='Dashboard'>
-            <Navbar {...NavBarProps}></Navbar>
-            <h1>This is the Dashboard</h1>
-            <ToggleConnect></ToggleConnect>
-        </div>
-    )
+    if (!!localStorage.getItem("name")) {
+        return (
+            <div className='Dashboard'>
+                <Navbar {...NavBarProps}></Navbar>
+                <h1>This is the Dashboard</h1>
+                <ToggleConnect></ToggleConnect>
+            </div>
+        )
+    }
+    else {
+        return (
+            <Navigate to="/" replace/>
+        )
+    }
 };
