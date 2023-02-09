@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth"
+import { useState, useEffect, useContext, createContext } from 'react'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_pDdLgIxWP_vstmxnQ2ahhhdtLgRsoCA",
@@ -12,6 +13,24 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+
+// export const AuthContext = createContext()
+// export const AuthContextProvider = props => {
+//     const [user, setUser] = useState()
+//     const [error, setError] = useState()
+
+//     useEffect(() => {
+//         const unsubscribe = onAuthStateChanged(getAuth(), setUser, setError)
+//         return () => unsubscribe()
+//     }, [])
+//     return <AuthContext.Provider value={{user, error}} {...props} />
+// }
+
+// export const useAuthState = () => {
+//     const auth = useContext(AuthContext)
+//     return {...auth, isAuthenticated: auth.user != null}
+// }
 
 const provider = new GoogleAuthProvider();
 
