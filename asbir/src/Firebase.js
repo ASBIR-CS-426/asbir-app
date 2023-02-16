@@ -1,6 +1,6 @@
+
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth"
-import { useState, useEffect, useContext, createContext } from 'react'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_pDdLgIxWP_vstmxnQ2ahhhdtLgRsoCA",
