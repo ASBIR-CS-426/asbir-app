@@ -4,6 +4,14 @@ import placeholder from './assets/video-placeholder.png'
 
 let image_on = true;
 
+const sub = () => {
+  image_topic.subscribe(function(message) {
+    console.log('Received message on ' + image_topic.name);
+    document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
+    // image_topic.unsubscribe()
+  })
+}
+
 let ros = new ROSLIB.Ros({
   url : 'ws://localhost:9090'
 });
@@ -13,12 +21,7 @@ let image_topic = new ROSLIB.Topic({
   name: '/CompressedImage',
   messageType: 'sensor_msgs/CompressedImage'
 });
-
-image_topic.subscribe(function(message) {
-  console.log('Received message on ' + image_topic.name);
-  document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
-  // image_topic.unsubscribe()
-})
+sub();
 
 const toggleCameraFeed = () => {
   if (image_on === true) {
@@ -29,10 +32,7 @@ const toggleCameraFeed = () => {
   }
   else {
     console.log('Image On!')
-    image_topic.subscribe(function(message) {
-      console.log('Received message on ' + image_topic.name);
-      document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
-    })
+    sub(ros);
     image_on = true;
   }
 }
