@@ -65,12 +65,12 @@ export const LoginForm = (props) => {
                     await login()
                     props.onSubmit(((successful < 0) ? 'not success' : 'success'))
                 }}>Log In</button> 
-            </form>
-            <GoogleButton onClick={async () => {
-                await signInWithGoogle()
-                navigate("/dashboard")
-                navigate("/dashboard")
-            }}/> {/* Uses the react-google-button library for styling*/}
+                <GoogleButton style={{marginLeft: '12px', marginTop: '1rem'}}onClick={async () => {
+                    await signInWithGoogle()
+                    navigate("/dashboard")
+                    navigate("/dashboard")
+                }}/>
+            </form> {/* Uses the react-google-button library for styling*/}
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here!</button>
             {/* <button className="link-btn" onClick={signInWithGoogle}>Sign In With Google</button> */}
             {successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}

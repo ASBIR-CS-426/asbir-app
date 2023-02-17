@@ -1,5 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import ROSLIB from 'roslib'
+import placeholder from './assets/video-placeholder.png'
+
+let image_on = true;
 
 let ros = new ROSLIB.Ros({
   url : 'ws://localhost:9090'
@@ -16,6 +19,23 @@ image_topic.subscribe(function(message) {
   document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
   // image_topic.unsubscribe()
 })
+
+const toggleCameraFeed = () => {
+  if (image_on === true) {
+    console.log('Image Off!')
+    image_topic.unsubscribe();
+    document.getElementById('my_image').src = placeholder;
+    image_on = false;
+  }
+  else {
+    console.log('Image On!')
+    image_topic.subscribe(function(message) {
+      console.log('Received message on ' + image_topic.name);
+      document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
+    })
+    image_on = true;
+  }
+}
 
 const ToggleConnect = () => {
 
@@ -38,11 +58,12 @@ const ToggleConnect = () => {
               
             }}>Toggle Connect</button>  <br />
 
-            <button onClick={() => {
+            {/* <button onClick={() => {
               image_topic.unsubscribe()
-            }}>Toggle Camera Feed</button>
-
-            <img alt='placeholder for ASBIR' id="my_image" src="assets/img/placeholder.png"></img>
+            }}>Toggle Camera Feed</button> */}
+            <div style={{paddingTop: '5rem'}}onClick={toggleCameraFeed}>
+              <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+            </div>
         </div>
     );
 }
