@@ -21,9 +21,5 @@ test("checks to make sure that the navbar populates properly", () => {
     );
     expect(screen.getByText("Test1")).toBeInTheDocument();
     expect(screen.getByText("Test2")).toBeInTheDocument();
-    expect(screen.getByText("Test3")).toBeInTheDocument();
-    // eslint-disable-next-line testing-library/no-node-access
-    // TODO: Write test case for links
-
-      
+    expect(screen.getByText("Test3")).toBeInTheDocument(); 
 })

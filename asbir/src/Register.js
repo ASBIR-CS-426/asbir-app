@@ -6,35 +6,26 @@ export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState();
-
-    // const loginInfo = [
-    //     {
-    //         username: 'brock',
-    //         password: '123'
-    //     }, 
-    //     {
-    //         username: 'tanner',
-    //         password: 'password'
-    //     },
-    //     {
-    //         username: 'annette',
-    //         password: 'machinelearning'
-    //     }
-    // ]
+    const [checker, setChecker] = useState(false);
     
 
     const handleSubmit = (e) => {
         e.preventDefault();
     }
     
-
     const register = async () => {
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
             console.log(user)
+            setChecker(true)
+            setChecker(true)
         }
         catch (error) {
+            setChecker(false)
             console.log(error.message)
+            window.alert(error.message)
+            window.location.reload()
+            // Need to figure out way to get back to register
         }
     }
 
@@ -48,7 +39,7 @@ export const Register = (props) => {
 
     return (
         <div className="auth-form-container">
-            <h2>Single Sign On</h2>
+            <h2>Register User</h2>
         <form className="register-form" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="username" name="username" />
@@ -57,9 +48,11 @@ export const Register = (props) => {
             <button type="submit" onClick={async () => {
                 register();
                 await delay(1000);
-                localStorage.setItem("name", user.uid);
-                localStorage.setItem("email", user.email);
-                props.onFormSwitch('login');
+                if (checker !== false) {
+                    localStorage.setItem("name", user.uid);
+                    localStorage.setItem("email", user.email);
+                    props.onFormSwitch('login');
+                }
             }}>Create User</button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>

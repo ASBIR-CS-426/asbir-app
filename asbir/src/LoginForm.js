@@ -12,7 +12,6 @@ export const LoginForm = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [successful, setSuccesful] = useState(0);
-    const [google, setGoogle] = useState(false);
 
     const navigate = useNavigate();
 
