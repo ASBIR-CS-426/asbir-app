@@ -10,8 +10,8 @@ import './Dashboard.css'
 const NavBarProps = {
     firstLink: '/error-log',
     firstInfo: 'Error Log',
-    secondLink: '/faq',
-    secondInfo: 'FAQ',
+    secondLink: '/dashboard',
+    secondInfo: 'Dashboard',
     thirdLink: '/inspection-database',
     thirdInfo: 'Inspection Database',
 }

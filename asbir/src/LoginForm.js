@@ -64,7 +64,7 @@ export const LoginForm = (props) => {
                     await login()
                     props.onSubmit(((successful < 0) ? 'not success' : 'success'))
                 }}>Log In</button> 
-                <GoogleButton style={{marginLeft: '12px', marginTop: '1rem'}}onClick={async () => {
+                <GoogleButton style={{width: 'auto', marginTop: '1rem'}}onClick={async () => {
                     await signInWithGoogle()
                     navigate("/dashboard")
                     navigate("/dashboard")

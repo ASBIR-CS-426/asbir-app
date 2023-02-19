@@ -5,8 +5,8 @@ import './AboutUs.css'
 
 export const AboutUs = () => {
     return (
-        <div className='Placeholder'>
-            <h1>THIS IS A PLACEHOLDER</h1>
+        <div className='AboutUs'>
+            <h1 style={{margin: '0'}}>About ASBIR</h1>
         </div>
     )
 };

@@ -7,10 +7,10 @@ import './InspectionDatabase.css'
 const NavBarProps = {
     firstLink: '/dashboard',
     firstInfo: 'Dashboard',
-    secondLink: '/error-log',
-    secondInfo: 'Error Log',
-    thirdLink: '/faq',
-    thirdInfo: 'FAQ',
+    secondLink: '/inspection-database',
+    secondInfo: 'Inspection Database',
+    thirdLink: '/error-log',
+    thirdInfo: 'Error Log',
 }
 
 export const InspectionDatabase = () => {

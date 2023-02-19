@@ -7,8 +7,8 @@ import './ErrorLog.css'
 const NavBarProps = {
     firstLink: '/dashboard',
     firstInfo: 'Dashboard',
-    secondLink: '/faq',
-    secondInfo: 'FAQ',
+    secondLink: '/error-log',
+    secondInfo: 'Error Log',
     thirdLink: '/inspection-database',
     thirdInfo: 'Inspection Database',
 }
