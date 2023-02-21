@@ -5,6 +5,10 @@ import './AboutUs.css'
 import brock from './assets/brock.JPG'
 import annette from './assets/annette.jpg'
 import tanner from './assets/tanner.jpg'
+import dave from './assets/dave.jpg'
+import la from './assets/la.jpg'
+import devrin from './assets/devrin.jpg'
+
 
 export const AboutUs = () => {
     return (
@@ -49,6 +53,48 @@ export const AboutUs = () => {
                 <p>trichnak72399@gmail.com</p>
                 <p>
                     <button className="button" onClick={() => {window.location.href = "mailto:trichnak72399@gmail.com"}}>Contact Tanner</button>
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <h2 style={{ textAlign: "center", fontSize: "2.5rem" }}>Meet the advisors!</h2>
+        <div className="row">
+            <div className="column">
+            <div className="image-card">
+                <img src={dave} alt="Headshot of Dave" style={{ width: "100%" }} />
+                <div className="container">
+                <h2>David Feil-Seifer</h2>
+                <p style={{fontSize : "1.25rem"}}>Dave (Dr. Feil-Seifer) is the other primary instructor for the CS 426 teaching team and is an avid roboticist</p>
+                <p>dave@cse.unr.edu</p>
+                <p>
+                    <button className="button" onClick={() => {window.location.href = "mailto:dave@cse.unr.edu"}}>Contact Dave</button>
+                </p>
+                </div>
+            </div>
+            </div>
+            <div className="column">
+            <div className="image-card">
+                <img src={la} alt="Headshot of Dr. La" style={{ width: "100%" }} />
+                <div className="container">
+                <h2>Hung (Jim) La</h2>
+                <p style={{fontSize : "1.25rem"}}>Dr. La is our external advisor for our project and has helped immensely in all the devlopment of ASBIR</p>
+                <p>hla@unr.edu</p>
+                <p>
+                    <button className="button" onClick={() => {window.location.href = "mailto:hla@unr.edu"}}>Contact Dr. La</button>
+                </p>
+                </div>
+            </div>
+            </div>
+            <div className="column">
+            <div className="image-card">
+                <img src={devrin} alt="Devrin Lee Headshot" style={{ width: "100%" }} />
+                <div className="container">
+                <h2>Devrin Lee</h2>
+                <p style={{fontSize : "1.25rem"}}>Devrin is one of the primary instructors apart of the CS 426 team and has immense project management experience</p>
+                <p>dlee@unr.edu</p>
+                <p>
+                    <button className="button" onClick={() => {window.location.href = "mailto:dlee@unr.edu"}}>Contact Devrin</button>
                 </p>
                 </div>
             </div>
