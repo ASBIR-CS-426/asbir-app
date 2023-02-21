@@ -2,22 +2,22 @@ import React from 'react';
 
 import Navbar from './Navbar'
 
-import './InspectionDatabase.css'
+import './RobotLocation.css'
 
 const NavBarProps = {
     firstLink: '/dashboard',
     firstInfo: 'Dashboard',
-    secondLink: '/inspection-database',
-    secondInfo: 'Inspection Database',
+    secondLink: '/robot-location',
+    secondInfo: 'Robot Location',
     thirdLink: '/error-log',
     thirdInfo: 'Error Log',
 }
 
-export const InspectionDatabase = () => {
+export const RobotLocation = () => {
     return (
-        <div className='InspectionDatabase'>
+        <div className='RobotLocation'>
             <Navbar {...NavBarProps} />
-            <h1>This is the Inspection Database</h1>
+            <h1>This is the Robot Location tab</h1>
         </div>
     )
 };

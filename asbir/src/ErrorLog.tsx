@@ -9,8 +9,8 @@ const NavBarProps = {
     firstInfo: 'Dashboard',
     secondLink: '/error-log',
     secondInfo: 'Error Log',
-    thirdLink: '/inspection-database',
-    thirdInfo: 'Inspection Database',
+    thirdLink: '/robot-location',
+    thirdInfo: 'Robot Location',
 }
 
 export const ErrorLog = () => {

@@ -12,6 +12,7 @@ export const LoginForm = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [successful, setSuccesful] = useState(0);
+    const [place, setPlace] = useState(false)
 
     const navigate = useNavigate();
 
@@ -21,8 +22,8 @@ export const LoginForm = (props) => {
         if (!!localStorage.getItem("name") && !!localStorage.getItem("email")) {
             console.log(email);
             console.log(pass);
-            setSuccesful(1);
             navigate("/dashboard")
+            setSuccesful(1);
         }
         else {
             setSuccesful(-1);
@@ -30,14 +31,16 @@ export const LoginForm = (props) => {
     }
 
     const login = async () => {
+        setPlace(true)
         try {
-            setSuccesful(1)
             const user = await signInWithEmailAndPassword(auth, email, pass)
             localStorage.setItem("name", user.uid);
             localStorage.setItem("email", user.email);
             navigate("/dashboard")
+            setSuccesful(1)
         }
         catch (error) {
+            setPlace(false)
             setSuccesful(-1);
             console.log(error.message)
         }
@@ -45,11 +48,11 @@ export const LoginForm = (props) => {
 
     useEffect(() => {
         console.log('Successful: ', successful);
-        setSuccesful(successful);
         if (!!localStorage.getItem("name") && !!localStorage.getItem("email")) {
             navigate("/dashboard")
             localStorage.clear();
         }
+        setSuccesful(successful);
       }, [successful])
     // onClick={async () => props.onSubmit(((successful === -1) ? 'not success' : 'success'))
     return (
@@ -72,7 +75,7 @@ export const LoginForm = (props) => {
             </form> {/* Uses the react-google-button library for styling*/}
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here!</button>
             {/* <button className="link-btn" onClick={signInWithGoogle}>Sign In With Google</button> */}
-            {successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
+            {!place && successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
             {/* {!!localStorage.getItem("name") && <h2>{localStorage.getItem("name")}</h2>}
             {!!localStorage.getItem("email") && <h2>{localStorage.getItem("email")}</h2>} */}
         </div>

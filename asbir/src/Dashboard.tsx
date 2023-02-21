@@ -12,8 +12,8 @@ const NavBarProps = {
     firstInfo: 'Error Log',
     secondLink: '/dashboard',
     secondInfo: 'Dashboard',
-    thirdLink: '/inspection-database',
-    thirdInfo: 'Inspection Database',
+    thirdLink: '/robot-location',
+    thirdInfo: 'Robot Location',
 }
 
 
