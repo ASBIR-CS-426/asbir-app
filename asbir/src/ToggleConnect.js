@@ -12,6 +12,13 @@ const sub = () => {
   })
 }
 
+const logPose = () => {
+  pose_topic.subscribe(function(message) {
+    console.log('position:', message.pose.pose.position.x, message.pose.pose.position.y, message.pose.pose.position.z)
+    console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
+  })
+}
+
 let ros = new ROSLIB.Ros({
   url : 'ws://localhost:9090'
 });
@@ -21,6 +28,17 @@ let image_topic = new ROSLIB.Topic({
   name: '/CompressedImage',
   messageType: 'sensor_msgs/CompressedImage'
 });
+
+let pose_topic = new ROSLIB.Topic({
+  ros: ros, 
+  name: '/T265/odom/sample',
+  messageType: 'nav_msgs/msg/Odometry'
+});
+
+logPose();
+
+//position = [msg.pose.position.x, msg.pose.position.y, msg.pose.position.z]
+//orientation = [msg.pose.orientation.x, msg.pose.orientation.y, msg.pose.orientation.z, msg.pose.orientation.w]
 sub();
 
 const toggleCameraFeed = () => {
