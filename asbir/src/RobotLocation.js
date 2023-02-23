@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Navbar from './Navbar'
+import { RobotLocationChart } from './RobotLocationChart';
 
 import './RobotLocation.css'
 
@@ -17,7 +18,8 @@ export const RobotLocation = () => {
     return (
         <div className='RobotLocation'>
             <Navbar {...NavBarProps} />
-            <h1>This is the Robot Location tab</h1>
+            <h1>Robot Location</h1>
+            <RobotLocationChart/>
         </div>
     )
 };

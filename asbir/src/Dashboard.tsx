@@ -27,7 +27,7 @@ export const Dashboard = () => {
         return (
             <div className='Dashboard'>
                 <Navbar {...NavBarProps}></Navbar>
-                <h1>This is the Dashboard</h1>
+                <h1>Dashboard</h1>
                 <ToggleConnect></ToggleConnect>
             </div>
         )

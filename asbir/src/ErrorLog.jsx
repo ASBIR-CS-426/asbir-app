@@ -1,6 +1,7 @@
-import React from 'react';
 
 import Navbar from './Navbar'
+import { Canvas } from "@react-three/fiber";
+import Cylinder3d from "./Cylinder3d";
 
 import './ErrorLog.css'
 
@@ -14,10 +15,11 @@ const NavBarProps = {
 }
 
 export const ErrorLog = () => {
+
     return (
         <div className='ErrorLog'>
             <Navbar {...NavBarProps} />
-            <h1>This is the Error Log</h1>
+            <Cylinder3d/>
         </div>
     )
 };
