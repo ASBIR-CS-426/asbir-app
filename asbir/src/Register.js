@@ -22,9 +22,9 @@ export const Register = (props) => {
         }
         catch (error) {
             setChecker(false)
-            console.log(error.message)
-            window.alert(error.message)
-            window.location.reload()
+            global.console.log(error.message)
+            global.window.alert(error.message)
+            global.window.location.reload()
             // Need to figure out way to get back to register
         }
     }
@@ -46,7 +46,7 @@ export const Register = (props) => {
             <label htmlFor="password">Password</label>
             <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="password" placeholder="********" />
             <button type="submit" onClick={async () => {
-                register();
+                await register();
                 await delay(1000);
                 if (checker !== false) {
                     localStorage.setItem("name", user.uid);

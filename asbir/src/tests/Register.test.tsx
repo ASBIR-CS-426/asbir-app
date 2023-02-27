@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import {Register} from '../Register'
 import {BrowserRouter as Router} from 'react-router-dom';
 import '@testing-library/jest-dom'
@@ -17,12 +17,27 @@ test("if the header is there", () => {
 });
 
 test("whether the alert pops up when someone tries to register incorrectly", async () => {
-    const alertMock = jest.spyOn(window,'alert').mockImplementation(); 
+    const alertMock = jest.spyOn(global.window,'alert').mockImplementation(); 
+    const logSpy = jest.spyOn(global.console, 'log');
     render (
         <Router>
             <Register />
         </Router>
     )
-    await fireEvent.click(screen.getByText('Create User'))
-    expect(alertMock).toHaveBeenCalledTimes(1)
+    await fireEvent.click(screen.getByText('Create User'));
+    await waitFor(() => {
+        expect(logSpy).toHaveBeenCalled();
+        // expect(logSpy).toHaveBeenCalledTimes(2);
+        // expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
+    })
+
+    await waitFor(() => {
+        expect(logSpy).toHaveBeenCalledTimes(1);
+        // expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
+    })
+
+    await waitFor(() => {
+        expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
+    })
+    // Firebase: Error (auth/invalid-email).
 })

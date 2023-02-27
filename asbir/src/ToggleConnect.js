@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react'
 import ROSLIB from 'roslib'
 import placeholder from './assets/video-placeholder.png'
 
+import './ToggleConnect.css'
+
 let image_on = true;
 
 const sub = () => {
@@ -79,7 +81,7 @@ const ToggleConnect = () => {
             {/* <button onClick={() => {
               image_topic.unsubscribe()
             }}>Toggle Camera Feed</button> */}
-            <div style={{paddingTop: '5rem'}}onClick={toggleCameraFeed}>
+            <div className='image-wrapper' style={{paddingTop: '5rem', hover: 'cursor'}}onClick={toggleCameraFeed}>
               <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
             </div>
         </div>
