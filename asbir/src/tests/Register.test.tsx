@@ -27,17 +27,13 @@ test("whether the alert pops up when someone tries to register incorrectly", asy
     await fireEvent.click(screen.getByText('Create User'));
     await waitFor(() => {
         expect(logSpy).toHaveBeenCalled();
-        // expect(logSpy).toHaveBeenCalledTimes(2);
-        // expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
     })
 
     await waitFor(() => {
         expect(logSpy).toHaveBeenCalledTimes(1);
-        // expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
     })
 
     await waitFor(() => {
         expect(logSpy).toHaveBeenCalledWith('Firebase: Error (auth/invalid-email).');
     })
-    // Firebase: Error (auth/invalid-email).
 })

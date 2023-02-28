@@ -29,6 +29,10 @@ const Cylinder = (props) => (
   </mesh>
 )
 
+let x_rotation = 0;
+let y_rotation = -1.57;
+let z_rotation = 0;
+
 function MyRotatingBox() {
   const myMesh = useRef();
 
@@ -39,9 +43,9 @@ function MyRotatingBox() {
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime();
-    myMesh.current.rotation.x = Math.sin(a);
-    myMesh.current.rotation.y = Math.sin(a);
-    myMesh.current.rotation.z = Math.sin(a);
+    myMesh.current.rotation.x = x_rotation;
+    myMesh.current.rotation.y = y_rotation;
+    myMesh.current.rotation.z = z_rotation;
   });
 
   return (
@@ -61,14 +65,23 @@ function MyRotatingBox() {
 
 export default function Cylinder3d() {
   return (
-    <div style={{height: "1000px"}}>
-      <Canvas>
+    <div style={{height: "80vh", paddingBottom: "4rem"}}>
+      <button onClick={() => {
+        x_rotation += 0.1;
+      }}>Change X Rotation</button>
+      <button onClick={() => {
+        y_rotation += 0.1;
+      }}>Change Y Rotation</button>
+      <button onClick={() => {
+        z_rotation += 0.1;
+      }}>Change Z Rotation</button>
+      <Canvas style={{}}>
         {/* <group position={[0, 0, 0]}>
           <MyRotatingBox />
           <Sphere position={[-1, -1, 0]}/>
         </group> */}
         <MyRotatingBox/>
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={0.4} />
         <directionalLight />
       </Canvas>
     </div>
