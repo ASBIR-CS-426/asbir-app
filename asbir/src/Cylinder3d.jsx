@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
+import ROSLIB from 'roslib'
 import { useFrame, Canvas } from "@react-three/fiber";
+import * as THREE from 'three';
 
 const Body = ({ length = 4, ...props }) => (
   <mesh castShadow receiveShadow {...props}>
@@ -29,23 +31,49 @@ const Cylinder = (props) => (
   </mesh>
 )
 
-let x_rotation = 0;
-let y_rotation = -1.57;
-let z_rotation = 0;
+let X = 0;
+let Y = 0;
+let Z = 0;
+
+let ros = new ROSLIB.Ros({
+  url : 'ws://localhost:9090'
+});
+
+let pose_topic = new ROSLIB.Topic({
+  ros: ros, 
+  name: '/T265/odom/sample',
+  messageType: 'nav_msgs/msg/Odometry'
+});
+
+const logPose = () => {
+  pose_topic.subscribe(function(message) {
+    console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
+    let x_temp = message.pose.pose.orientation.x
+    let y_temp = message.pose.pose.orientation.y
+    let z_temp = message.pose.pose.orientation.z
+    let w_temp = message.pose.pose.orientation.w
+    let rotation = new THREE.Euler().setFromQuaternion(new THREE.Quaternion(x_temp, y_temp, z_temp, w_temp));
+    X = rotation._x
+    Z = rotation._y
+    Y = rotation._z
+    console.log(rotation)
+
+
+  })
+}
+
+logPose();
+
 
 function MyRotatingBox() {
   const myMesh = useRef();
-
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [z, setZ] = useState(0);
   
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime();
-    myMesh.current.rotation.x = x_rotation;
-    myMesh.current.rotation.y = y_rotation;
-    myMesh.current.rotation.z = z_rotation;
+    myMesh.current.rotation.x = X;
+    myMesh.current.rotation.y = Y;
+    myMesh.current.rotation.z = Z;
   });
 
   return (
@@ -67,13 +95,13 @@ export default function Cylinder3d() {
   return (
     <div style={{height: "80vh", paddingBottom: "4rem"}}>
       <button onClick={() => {
-        x_rotation += 0.1;
+        X += 0.1;
       }}>Change X Rotation</button>
       <button onClick={() => {
-        y_rotation += 0.1;
+        Y += 0.1;
       }}>Change Y Rotation</button>
       <button onClick={() => {
-        z_rotation += 0.1;
+        Z += 0.1;
       }}>Change Z Rotation</button>
       <Canvas style={{}}>
         {/* <group position={[0, 0, 0]}>
