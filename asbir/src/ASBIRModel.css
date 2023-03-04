@@ -1,6 +1,7 @@
-.ErrorLog {
+.ASBIRModel {
     text-align: center;
-    min-height: 100vh;
+    padding-top: 1rem;
+    min-height: 120vh;
     align-items: center;
     justify-content: center;
     color: white;

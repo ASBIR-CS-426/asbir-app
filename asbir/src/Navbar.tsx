@@ -2,10 +2,7 @@ import React from 'react';
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
-  NavBtn,
-  NavBtnLink,
 } from './NavbarElements';
 
 interface NavBarProps {
@@ -20,7 +17,6 @@ interface NavBarProps {
 const Navbar = (props: NavBarProps) => {
   return (
     <Nav>
-      <Bars />  
       <NavMenu>
         <NavLink to={props.firstLink}>
           {props.firstInfo}

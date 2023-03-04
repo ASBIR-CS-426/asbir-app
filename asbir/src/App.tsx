@@ -1,7 +1,7 @@
 import React from "react";
 import { Home } from "./Home"
 import { Dashboard } from "./Dashboard"
-import { ErrorLog } from "./ErrorLog"
+import { ASBIRModel } from "./ASBIRModel"
 import { AboutUs } from "./AboutUs"
 import { RobotLocation } from "./RobotLocation";
 import {Routes, Route} from "react-router-dom";
@@ -15,7 +15,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/robot-location" element={<RobotLocation />}></Route>
-        <Route path="/error-log" element={<ErrorLog />}></Route>
+        <Route path="/asbir-model" element={<ASBIRModel />}></Route>
       </Routes>
     </div>
   );

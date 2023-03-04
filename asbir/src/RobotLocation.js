@@ -10,8 +10,8 @@ const NavBarProps = {
     firstInfo: 'Dashboard',
     secondLink: '/robot-location',
     secondInfo: 'Robot Location',
-    thirdLink: '/error-log',
-    thirdInfo: 'Error Log',
+    thirdLink: '/asbir-model',
+    thirdInfo: 'ASBIR Model',
 }
 
 export const RobotLocation = () => {

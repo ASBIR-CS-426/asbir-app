@@ -1,23 +1,22 @@
 
 import Navbar from './Navbar'
-import { Canvas } from "@react-three/fiber";
 import Cylinder3d from "./Cylinder3d";
 
-import './ErrorLog.css'
+import './ASBIRModel.css'
 
 const NavBarProps = {
     firstLink: '/dashboard',
     firstInfo: 'Dashboard',
-    secondLink: '/error-log',
-    secondInfo: 'Error Log',
+    secondLink: '/asbir-model',
+    secondInfo: 'ASBIR Model',
     thirdLink: '/robot-location',
     thirdInfo: 'Robot Location',
 }
 
-export const ErrorLog = () => {
+export const ASBIRModel = () => {
 
     return (
-        <div className='ErrorLog'>
+        <div className='ASBIRModel'>
             <Navbar {...NavBarProps} />
             <Cylinder3d/>
         </div>
