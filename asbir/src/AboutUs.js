@@ -8,8 +8,8 @@ import tanner from './assets/tanner.jpg'
 import dave from './assets/dave.jpg'
 import la from './assets/la.jpg'
 import devrin from './assets/devrin.jpg'
-import ASBIR_Model from './assets/ASBIR_Model.mov'
-import ASBIR_Livestream from './assets/ASBIR_Livestream.mov'
+import ASBIR_Model from './assets/ASBIR_Model.mp4'
+import ASBIR_Livestream from './assets/ASBIR_Livestream.mp4'
 
 
 export const AboutUs = () => {
