@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/asbir-app/static/css/main.a793f1ed.css",
-    "main.js": "/asbir-app/static/js/main.fbae3649.js",
+    "main.css": "/asbir-app/static/css/main.9e708e03.css",
+    "main.js": "/asbir-app/static/js/main.50ace69d.js",
     "static/media/brock.JPG": "/asbir-app/static/media/brock.fc4b01e107eaad26b6cb.JPG",
-    "static/media/ASBIR_Livestream.mov": "/asbir-app/static/media/ASBIR_Livestream.7b1105597ab10e68eab8.mov",
-    "static/media/ASBIR_Model.mov": "/asbir-app/static/media/ASBIR_Model.9beea2352ac85c62f2bc.mov",
+    "static/media/ASBIR_Livestream.mp4": "/asbir-app/static/media/ASBIR_Livestream.3e9a5fab651480140317.mp4",
+    "static/media/ASBIR_Model.mp4": "/asbir-app/static/media/ASBIR_Model.76399601b12df4f11a8d.mp4",
     "static/media/tanner.jpg": "/asbir-app/static/media/tanner.de47bf22a6575bc62bed.jpg",
     "static/media/devrin.jpg": "/asbir-app/static/media/devrin.5b88e2043aba335d2e90.jpg",
     "static/media/annette.jpg": "/asbir-app/static/media/annette.b13f01bb6ed109562d35.jpg",
     "static/media/la.jpg": "/asbir-app/static/media/la.f7531e68fb49c7774545.jpg",
     "static/media/dave.jpg": "/asbir-app/static/media/dave.447c1bd58ee988b1ca78.jpg",
     "index.html": "/asbir-app/index.html",
-    "main.a793f1ed.css.map": "/asbir-app/static/css/main.a793f1ed.css.map",
-    "main.fbae3649.js.map": "/asbir-app/static/js/main.fbae3649.js.map"
+    "main.9e708e03.css.map": "/asbir-app/static/css/main.9e708e03.css.map",
+    "main.50ace69d.js.map": "/asbir-app/static/js/main.50ace69d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a793f1ed.css",
-    "static/js/main.fbae3649.js"
+    "static/css/main.9e708e03.css",
+    "static/js/main.50ace69d.js"
   ]
 }
