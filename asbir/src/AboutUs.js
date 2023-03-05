@@ -8,6 +8,8 @@ import tanner from './assets/tanner.jpg'
 import dave from './assets/dave.jpg'
 import la from './assets/la.jpg'
 import devrin from './assets/devrin.jpg'
+import ASBIR_Model from './assets/ASBIR_Model.mov'
+import ASBIR_Livestream from './assets/ASBIR_Livestream.mov'
 
 
 export const AboutUs = () => {
@@ -58,6 +60,20 @@ export const AboutUs = () => {
             </div>
             </div>
         </div>
+
+        <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem"}}>
+            <div className='video-column-left'>
+                <video controls autoPlay loop muted>
+                    <source src={ASBIR_Livestream} type="video/mp4"></source>
+                </video>
+            </div>
+            <div className='video-column-right'>
+                <video controls autoPlay loop muted>
+                    <source src={ASBIR_Model} type="video/mp4"></source>
+                </video>
+            </div>
+        </div>
+
         <h2 style={{ textAlign: "center", fontSize: "2.5rem" }}>Meet the advisors!</h2>
         <div className="row">
             <div className="column">

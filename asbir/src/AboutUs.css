@@ -25,6 +25,20 @@ html {
   padding: 0 0.5rem;
 }
 
+.video-column-left {
+  float: left;
+  padding-left: 4rem;
+}
+
+video {
+  border: 0.5rem solid #000d53;
+}
+
+.video-column-right {
+  float: right;
+  padding-right: 4rem;
+}
+
 .image-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
