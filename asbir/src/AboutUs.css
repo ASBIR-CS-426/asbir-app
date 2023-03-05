@@ -26,8 +26,9 @@ html {
 }
 
 .video-column-left {
-  float: left;
-  padding-left: 4rem;
+  /* float: left; */
+  /* padding-left: 1rem; */
+  display: flex;
 }
 
 video {
@@ -35,8 +36,9 @@ video {
 }
 
 .video-column-right {
-  float: right;
-  padding-right: 4rem;
+  /* float: right; */
+  /* padding-right: 1rem; */
+  display: flex;
 }
 
 .image-card {
