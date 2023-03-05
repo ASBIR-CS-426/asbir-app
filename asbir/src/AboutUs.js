@@ -61,7 +61,7 @@ export const AboutUs = () => {
             </div>
         </div>
 
-        <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem", display: "flex", flexDirection: "row", gap: "4%", justifyContent: "center"}}>
+        <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem", display: "flex", flexDirection: "row", gap: "1.5%", justifyContent: "center"}}>
             <div className='video-column-left'>
                 <video controls autoPlay loop muted>
                     <source src={ASBIR_Livestream} type="video/mp4"></source>
