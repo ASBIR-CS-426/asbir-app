@@ -1,0 +1,11 @@
+.StatusLight {
+    border-radius: 50%; 
+    width: 4rem; 
+    height: 4rem;
+}
+
+.StatusLight:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+    cursor: pointer;
+}
