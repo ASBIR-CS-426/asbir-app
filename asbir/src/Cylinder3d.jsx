@@ -47,7 +47,7 @@ let pose_topic = new ROSLIB.Topic({
 
 const logPose = () => {
   pose_topic.subscribe(function(message) {
-    console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
+    // console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
     let x_temp = message.pose.pose.orientation.x
     let y_temp = message.pose.pose.orientation.y
     let z_temp = message.pose.pose.orientation.z
@@ -56,7 +56,6 @@ const logPose = () => {
     X = rotation._x
     Z = rotation._y
     Y = rotation._z
-    console.log(rotation)
 
 
   })
@@ -115,4 +114,3 @@ export default function Cylinder3d() {
     </div>
   );
 }
- 

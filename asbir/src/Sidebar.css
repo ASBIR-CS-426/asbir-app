@@ -1,0 +1,23 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -25rem;
+    width: 25rem;
+    height: 100%;
+    background-color: #f2f2f2;
+    overflow-y: scroll;
+    padding: 20px;
+    transition: left 0.5s ease-in-out;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar.closed {
+    left: -25rem;
+}
+
+.card {
+    margin-bottom: 20px;
+}
