@@ -3,7 +3,8 @@ import { StatusCard } from "./StatusCard";
 import ROSLIB from 'roslib'
 
 import './Sidebar.css'
-import { render } from "@testing-library/react";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -14,8 +15,8 @@ let initialCardData = {
   "PathController": { status: "green", title: "PathController", description: "This is a description of the first card.", count: 0 },
   "PotentialField": { status: "green", title: "PotentialField", description: "This is a description of the first card.", count: 0 },
   "StatusListener": { status: "green", title: "StatusListener", description: "This is a description of the first card.", count: 0 },
-  "D400/D400": { status: "green", title: "D400 Camera", description: "This is a description of the first card.", count: 0 },
-  "T265/T265": { status: "green", title: "T265 Camera", description: "This is a description of the first card.", count: 0 },
+  "D400": { status: "green", title: "D400 Camera", description: "This is a description of the first card.", count: 0 },
+  "T265": { status: "green", title: "T265 Camera", description: "This is a description of the first card.", count: 0 },
   "rosbridge_websocket": { status: "green", title: "rosbridge_websocket", description: "This is a description of the first card.", count: 0 },
   "ROSAPI": { status: "green", title: "ROSAPI", description: "This is a description of the first card.", count: 0 },
 };
@@ -81,7 +82,7 @@ export const Sidebar = () => {
 
   // document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
 
-  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400/D400", "T265/T265", "rosbridge_websocket", "ROSAPI"]
+  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400", "T265", "rosbridge_websocket", "ROSAPI"]
 
   const renderCards = () => {
     return cardData.map((card, index) => {
@@ -106,6 +107,7 @@ export const Sidebar = () => {
         // }
       }
       return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
+      // return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
     });
   };
 
@@ -119,12 +121,15 @@ export const Sidebar = () => {
         style={{
           position: "fixed",
           top: "20px",
-          left: isOpen ? "25rem" : "0rem",
+          left: isOpen ? "25rem" : "2rem",
           transition: "left 0.5s ease-in-out",
+          paddingBottom: 0,
+          paddingTop: 0,
+          backgroundColor: "white",
         }}
         onClick={toggleSidebar}
       >
-        {isOpen ? "Close" : "Open"}
+        {isOpen ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />}
       </button>
       <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
         {renderCards()}

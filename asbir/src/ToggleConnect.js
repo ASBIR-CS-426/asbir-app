@@ -40,7 +40,7 @@ const pointcloud_sub = () => {
 
 let pointcloud_topic = new ROSLIB.Topic({
   ros: ros, 
-  name: '/D400/depth/color/points',
+  name: '/D435i/depth/color/points',
   messageType: 'sensor_msgs/PointCloud2',
   isAdvertised: true
 });
@@ -68,7 +68,7 @@ const pointcloud = async () => {
       ros: ros,
       tfClient: tfClient,
       rootObject: viewer.scene,
-      topic: '/D400/depth/color/points',
+      topic: '/D435i/depth/color/points',
       material: { size: 0.5, color: 0xffffff },
       max_pts: 5000000,
   });
@@ -100,7 +100,7 @@ const ToggleConnect = () => {
 
     return (
         <div>
-            <b>Simple connect:  </b><button onClick={() =>{
+            <button onClick={() =>{
               ros.on('connection', function() {
                 console.log('Connected to websocket server.');
               });
@@ -113,7 +113,7 @@ const ToggleConnect = () => {
                 console.log('Connection to websocket server closed.');
               });
               
-            }}>Toggle Connect</button>  <br />
+            }}><b>Run ASBIR Launch File</b></button>  <br />
 
             {/* <button onClick={() => {
               image_topic.unsubscribe()
@@ -123,6 +123,21 @@ const ToggleConnect = () => {
             </div>
             
             <div id="viewer"></div>
+
+            <button onClick={() =>{
+              ros.on('connection', function() {
+                console.log('Connected to websocket server.');
+              });
+            
+              ros.on('error', function(error) {
+                console.log('Error connecting to websocket server: ', error);
+              });
+            
+              ros.on('close', function() {
+                console.log('Connection to websocket server closed.');
+              });
+              
+            }}><b>Return ASBIR Back To Starting Location</b></button>  <br />
             
         </div>
     );

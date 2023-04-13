@@ -4,6 +4,7 @@ import {
   NavLink,
   NavMenu,
 } from './NavbarElements';
+import { Sidebar } from './Sidebar';
 
 interface NavBarProps {
   firstLink: string,
