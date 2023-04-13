@@ -40,7 +40,7 @@ const pointcloud_sub = () => {
 
 let pointcloud_topic = new ROSLIB.Topic({
   ros: ros, 
-  name: '/D435i/depth/color/points',
+  name: '/D400/depth/color/points',
   messageType: 'sensor_msgs/PointCloud2',
   isAdvertised: true
 });
@@ -68,7 +68,7 @@ const pointcloud = async () => {
       ros: ros,
       tfClient: tfClient,
       rootObject: viewer.scene,
-      topic: '/D435i/depth/color/points',
+      topic: '/D400/depth/color/points',
       material: { size: 0.5, color: 0xffffff },
       max_pts: 5000000,
   });

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useCallback } from "react";
 import { StatusCard } from "./StatusCard";
 import ROSLIB from 'roslib'
@@ -15,8 +14,8 @@ let initialCardData = {
   "PathController": { status: "green", title: "PathController", description: "This is a description of the first card.", count: 0 },
   "PotentialField": { status: "green", title: "PotentialField", description: "This is a description of the first card.", count: 0 },
   "StatusListener": { status: "green", title: "StatusListener", description: "This is a description of the first card.", count: 0 },
-  "D400": { status: "green", title: "D400 Camera", description: "This is a description of the first card.", count: 0 },
-  "T265": { status: "green", title: "T265 Camera", description: "This is a description of the first card.", count: 0 },
+  "D400/D400": { status: "green", title: "D400 Camera", description: "This is a description of the first card.", count: 0 },
+  "T265/T265": { status: "green", title: "T265 Camera", description: "This is a description of the first card.", count: 0 },
   "rosbridge_websocket": { status: "green", title: "rosbridge_websocket", description: "This is a description of the first card.", count: 0 },
   "ROSAPI": { status: "green", title: "ROSAPI", description: "This is a description of the first card.", count: 0 },
 };
@@ -82,7 +81,7 @@ export const Sidebar = () => {
 
   // document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
 
-  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400", "T265", "rosbridge_websocket", "ROSAPI"]
+  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400/D400", "T265/T265", "rosbridge_websocket", "ROSAPI"]
 
   const renderCards = () => {
     return cardData.map((card, index) => {
@@ -107,32 +106,6 @@ export const Sidebar = () => {
         // }
       }
       return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
-      // return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
-=======
-import React, { useState } from "react";
-import { StatusCard } from "./StatusCard";
-
-import './Sidebar.css'
-
-export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const cardData = [
-    { status: "green", title: "Card Title 1", description: "This is a description of the first card." },
-    { status: "yellow", title: "Card Title 2", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 3", description: "This is the description of the third card." },
-    { status: "green", title: "Card Title 4", description: "This is a description of the fourth card." },
-    { status: "yellow", title: "Card Title 5", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 6", description: "This is the description of the sixth card." },
-    { status: "green", title: "Card Title 7", description: "This is a description of the seventh card." },
-    { status: "yellow", title: "Card Title 8", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 9", description: "This is the description of the ninth card." },
-  ];
-
-  const renderCards = () => {
-    return cardData.map((card, index) => {
-      return <StatusCard key={index} status={card.status} title={card.title} description={card.description} />;
->>>>>>> a58479228561876400ef635a9ed01ed389346f62
     });
   };
 
