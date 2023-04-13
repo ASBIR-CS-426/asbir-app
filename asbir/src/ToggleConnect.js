@@ -38,6 +38,15 @@ const pointcloud_sub = () => {
   return output
 }
 
+let system_toggle_topic = new ROSLIB.Topic({
+  ros: ros, 
+  name: '/ToggleSystem',
+  messageType: 'std_msgs/Bool',
+  isAdvertised: true
+});
+
+
+
 let pointcloud_topic = new ROSLIB.Topic({
   ros: ros, 
   name: '/D435i/depth/color/points',
@@ -98,20 +107,17 @@ const toggleCameraFeed = () => {
 
 const ToggleConnect = () => {
 
+  const [clicked, setClicked] = useState(0);
+
     return (
         <div>
-            <button onClick={() =>{
-              ros.on('connection', function() {
-                console.log('Connected to websocket server.');
-              });
-            
-              ros.on('error', function(error) {
-                console.log('Error connecting to websocket server: ', error);
-              });
-            
-              ros.on('close', function() {
-                console.log('Connection to websocket server closed.');
-              });
+            <button style={{backgroundColor: (clicked ? "yellow" : "green")}}
+            id='toggle_btn' onClick={() =>{
+              let toggle_msg = new ROSLIB.Message({data : true}); 
+              system_toggle_topic.publish(toggle_msg)
+              document.getElementById('toggle_btn').disabled = true;
+              setClicked(1);
+              console.log("HELLO")
               
             }}><b>Run ASBIR Launch File</b></button>  <br />
 
