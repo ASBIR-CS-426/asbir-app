@@ -8,8 +8,8 @@ import { Navigate } from 'react-router-dom';
 import './Dashboard.css'
 
 const NavBarProps = {
-    firstLink: '/error-log',
-    firstInfo: 'Error Log',
+    firstLink: '/asbir-model',
+    firstInfo: 'ASBIR Model',
     secondLink: '/dashboard',
     secondInfo: 'Dashboard',
     thirdLink: '/robot-location',

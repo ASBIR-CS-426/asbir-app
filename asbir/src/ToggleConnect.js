@@ -100,9 +100,7 @@ const ToggleConnect = () => {
 
     return (
         <div>
-            <p>Hello World!</p>
             <b>Simple connect:  </b><button onClick={() =>{
-            
               ros.on('connection', function() {
                 console.log('Connected to websocket server.');
               });
