@@ -45,7 +45,12 @@ let system_toggle_topic = new ROSLIB.Topic({
   isAdvertised: true
 });
 
-
+let return_to_start_topic = new ROSLIB.Topic({
+  ros: ros,
+  name: 'targetPoint',
+  messageType: 'geometry_msgs/PointStamped',
+  isAdvertised: true
+})
 
 let pointcloud_topic = new ROSLIB.Topic({
   ros: ros, 
@@ -130,18 +135,33 @@ const ToggleConnect = () => {
             
             <div id="viewer"></div>
 
-            <button onClick={() =>{
-              ros.on('connection', function() {
-                console.log('Connected to websocket server.');
-              });
+            <button style={{backgroundColor: "red"}} onClick={() =>{
+              let return_msg = new ROSLIB.Message({
+                header : {
+                  stamp : {
+                    sec : 0.0,
+                    nanosec: 0.0 
+                  },
+                  frame_id : 'odom_frame'
+                },
+                point : {
+                  x : 0.0,
+                  y : 0.0,
+                  z : 0.0
+                }
+              })
+              return_to_start_topic.publish(return_msg)
+              // ros.on('connection', function() {
+              //   console.log('Connected to websocket server.');
+              // });
             
-              ros.on('error', function(error) {
-                console.log('Error connecting to websocket server: ', error);
-              });
+              // ros.on('error', function(error) {
+              //   console.log('Error connecting to websocket server: ', error);
+              // });
             
-              ros.on('close', function() {
-                console.log('Connection to websocket server closed.');
-              });
+              // ros.on('close', function() {
+              //   console.log('Connection to websocket server closed.');
+              // });
               
             }}><b>Return ASBIR Back To Starting Location</b></button>  <br />
             
