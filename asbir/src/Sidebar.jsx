@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 import React, { useState, useCallback } from "react";
 import { StatusCard } from "./StatusCard";
 import ROSLIB from 'roslib'
 
 import './Sidebar.css'
-import { render } from "@testing-library/react";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -108,31 +108,6 @@ export const Sidebar = () => {
       }
       return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
       // return <StatusCard key={index} status={initialCardData[card].status} title={initialCardData[card].title} description={initialCardData[card].description} />;
-=======
-import React, { useState } from "react";
-import { StatusCard } from "./StatusCard";
-
-import './Sidebar.css'
-
-export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const cardData = [
-    { status: "green", title: "Card Title 1", description: "This is a description of the first card." },
-    { status: "yellow", title: "Card Title 2", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 3", description: "This is the description of the third card." },
-    { status: "green", title: "Card Title 4", description: "This is a description of the fourth card." },
-    { status: "yellow", title: "Card Title 5", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 6", description: "This is the description of the sixth card." },
-    { status: "green", title: "Card Title 7", description: "This is a description of the seventh card." },
-    { status: "yellow", title: "Card Title 8", description: "This card has a different title and description." },
-    { status: "red", title: "Card Title 9", description: "This is the description of the ninth card." },
-  ];
-
-  const renderCards = () => {
-    return cardData.map((card, index) => {
-      return <StatusCard key={index} status={card.status} title={card.title} description={card.description} />;
->>>>>>> a58479228561876400ef635a9ed01ed389346f62
     });
   };
 
@@ -146,12 +121,15 @@ export const Sidebar = () => {
         style={{
           position: "fixed",
           top: "20px",
-          left: isOpen ? "25rem" : "0rem",
+          left: isOpen ? "25rem" : "2rem",
           transition: "left 0.5s ease-in-out",
+          paddingBottom: 0,
+          paddingTop: 0,
+          backgroundColor: "white",
         }}
         onClick={toggleSidebar}
       >
-        {isOpen ? "Close" : "Open"}
+        {isOpen ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />}
       </button>
       <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
         {renderCards()}

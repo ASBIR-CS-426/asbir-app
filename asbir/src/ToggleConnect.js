@@ -100,7 +100,7 @@ const ToggleConnect = () => {
 
     return (
         <div>
-            <b>Simple connect:  </b><button onClick={() =>{
+            <button onClick={() =>{
               ros.on('connection', function() {
                 console.log('Connected to websocket server.');
               });
@@ -113,7 +113,7 @@ const ToggleConnect = () => {
                 console.log('Connection to websocket server closed.');
               });
               
-            }}>Toggle Connect</button>  <br />
+            }}><b>Run ASBIR Launch File</b></button>  <br />
 
             {/* <button onClick={() => {
               image_topic.unsubscribe()
@@ -123,6 +123,21 @@ const ToggleConnect = () => {
             </div>
             
             <div id="viewer"></div>
+
+            <button onClick={() =>{
+              ros.on('connection', function() {
+                console.log('Connected to websocket server.');
+              });
+            
+              ros.on('error', function(error) {
+                console.log('Error connecting to websocket server: ', error);
+              });
+            
+              ros.on('close', function() {
+                console.log('Connection to websocket server closed.');
+              });
+              
+            }}><b>Return ASBIR Back To Starting Location</b></button>  <br />
             
         </div>
     );

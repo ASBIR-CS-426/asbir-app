@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 
 import './Dashboard.css'
+import { Sidebar } from './Sidebar';
 
 const NavBarProps = {
     firstLink: '/asbir-model',
@@ -26,9 +27,10 @@ export const Dashboard = () => {
     if (!!localStorage.getItem("name")) {
         return (
             <div className='Dashboard'>
+                <Sidebar />
                 <Navbar {...NavBarProps}></Navbar>
                 <h1>Dashboard</h1>
-                <ToggleConnect></ToggleConnect>
+                <ToggleConnect />
             </div>
         )
     }
