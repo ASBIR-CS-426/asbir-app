@@ -74,7 +74,8 @@ button {
 }
 
 .login-unsuccessful {
-  color: red !important;
+  color: #e31c3d !important;
+  width: 100%;
 }
   /* div {
     background-image: linear-gradient(79deg, #580505, #000000 48%, #fdfdfd) !important;

@@ -86,7 +86,8 @@ export const LoginForm = (props) => {
             </form> {/* Uses the react-google-button library for styling*/}
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here!</button>
             {/* <button className="link-btn" onClick={signInWithGoogle}>Sign In With Google</button> */}
-            {!place && successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>}
+            {/* {!place && successful < 0 && <h2 id="login-unsuccessful-popup" className="login-unsuccessful">Please Login With A Valid Username and Password</h2>} */}
+            {!place && successful < 0 && window.alert("Please login with a valid username and password!")}
             {/* {!!localStorage.getItem("name") && <h2>{localStorage.getItem("name")}</h2>}
             {!!localStorage.getItem("email") && <h2>{localStorage.getItem("email")}</h2>} */}
         </div>

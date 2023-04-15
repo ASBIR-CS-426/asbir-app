@@ -44,7 +44,7 @@ export const Register = (props) => {
             <label htmlFor="email">Email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="username" name="username" />
             <label htmlFor="password">Password</label>
-            <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="password" placeholder="********" />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="password" placeholder="********" type="password" />
             <button type="submit" onClick={async () => {
                 await register();
                 await delay(1000);
