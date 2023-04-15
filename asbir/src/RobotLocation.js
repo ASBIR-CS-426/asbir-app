@@ -5,7 +5,10 @@ import { RobotLocationChart } from './RobotLocationChart';
 import { StatusCard } from './StatusCard';
 import { Sidebar } from './Sidebar';
 
+import { Link } from "react-router-dom"
+
 import './RobotLocation.css'
+
 
 const NavBarProps = {
     firstLink: '/dashboard',
@@ -26,6 +29,9 @@ export const RobotLocation = () => {
             <Navbar {...NavBarProps} />
             <h1>Robot Location</h1>
             {/* <RobotLocationChart/> */}
+        </div>
+        <div className="footer">
+            <Link className="link-btn" to="/about-us">Learn More</Link>
         </div>
         </>
     )

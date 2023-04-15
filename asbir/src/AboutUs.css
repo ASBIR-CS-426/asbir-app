@@ -53,6 +53,39 @@ video {
   color: white;
 }
 
+.project-description-header {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #000d53;
+  color: white;
+}
+
+.project-description-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.project-description-section > section {
+  border: 0.5rem solid #000d53;
+  padding: 20px;
+  text-align: justify;
+}
+
+.project-description-section > h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.project-description-section > p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 .container {
   padding: 0 1rem;
 }
@@ -88,4 +121,11 @@ video {
     width: 100%;
     display: block;
   }
+}
+
+.about-us-footer {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #000d53;
+  color: white;
 }

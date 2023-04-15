@@ -3,6 +3,9 @@ import ROSLIB from 'roslib'
 import { useFrame, Canvas } from "@react-three/fiber";
 import * as THREE from 'three';
 
+
+import { Link } from "react-router-dom"
+
 const Body = ({ length = 4, ...props }) => (
   <mesh castShadow receiveShadow {...props}>
     <boxGeometry args={[length, 1.5, 2]} />
@@ -111,6 +114,9 @@ export default function Cylinder3d() {
         <ambientLight intensity={0.4} />
         <directionalLight />
       </Canvas>
+      <div className="footer">
+        <Link className="link-btn" to="/about-us">Learn More</Link>
+      </div>
     </div>
   );
 }

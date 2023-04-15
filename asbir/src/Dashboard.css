@@ -6,3 +6,17 @@
     color: white;
     background-image: linear-gradient(79deg, #000d53, #000000 48%, #fdfdfd);
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: auto;
+  }
+
+.link-btn {
+    background: none;
+    color: white;
+    text-decoration: underline;
+  }
