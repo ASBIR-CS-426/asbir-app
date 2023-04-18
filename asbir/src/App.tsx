@@ -10,8 +10,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route index element={<Home />}></Route>
-        <Route path="/" element={<Home />}></Route>
+        <Route index element={<AboutUs />}></Route>
+        <Route path="/" element={<AboutUs />}></Route>
+        <Route path="/login" element={<Home/>}></Route>
         <Route path="/about-us" element={<AboutUs />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/robot-location" element={<RobotLocation />}></Route>

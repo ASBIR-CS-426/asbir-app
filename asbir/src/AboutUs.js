@@ -18,6 +18,9 @@ export const AboutUs = () => {
     return (
     <>
         <div className="about-section">
+            <div className='fixed-app-send'>
+                <Link className="link-btn" to="/login"><h3>Go To App!</h3></Link>
+            </div>
             <h1 className='about-us-header'>About ASBIR (Team 03)</h1>
             <h3>CS 426 Senior Project in Computer Science, Spring 2023, at UNR, CSE Department</h3>
         </div>
@@ -28,7 +31,7 @@ export const AboutUs = () => {
                 <img src={annette} alt="Annette selfie" style={{ width: "100%" }} />
                 <div className="container">
                 <h2>Annette McDonough</h2>
-                <p style={{fontSize : "1.25rem"}}>Annette primarily worked on the path finding and planning algorithms and <b>led the effort on the deep learning model</b></p>
+                <p style={{fontSize : "1.25rem"}}>Annette worked on the path finding algorithms and <b>led the effort on the deep learning model</b></p>
                 <p>amcdonough@nevada.unr.edu</p>
                 <p>
                     <button className="button" onClick={() => {window.location.href = "mailto:amcdonough@nevada.unr.edu"}}>Contact Annette</button>
@@ -94,7 +97,7 @@ export const AboutUs = () => {
 
         </div>
 
-        <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem", display: "flex", flexDirection: "row", gap: "1.5%", justifyContent: "center"}}>
+        {/* <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem", display: "flex", flexDirection: "row", gap: "1.5%", justifyContent: "center"}}>
             <div className='video-column-left'>
                 <div className='row' style={{textAlign: 'center'}}>
                     <h1>Our first time getting the video livestream to work!</h1>
@@ -110,6 +113,21 @@ export const AboutUs = () => {
                         <source src={ASBIR_Model} type="video/mp4"></source>
                     </video>
                 </div>
+            </div>
+        </div> */}
+
+        <div class="video-grid">
+            <div class="video-item">
+                <h1>Our first time getting the video livestream to work!</h1>
+                <video controls autoPlay loop muted>
+                    <source src={ASBIR_Livestream} type="video/mp4"></source>
+                </video>
+            </div>
+            <div class="video-item">
+                <h1>Our first time getting the 3D Model to work!</h1>
+                <video controls autoPlay loop muted>
+                    <source src={ASBIR_Model} type="video/mp4"></source>
+                </video>
             </div>
         </div>
 
@@ -159,7 +177,7 @@ export const AboutUs = () => {
             </div>
         </div>
         <div className="about-us-footer">
-                    <Link className="link-btn" to="/"><h1>Back to the Login Page</h1></Link>
+            <Link className="link-btn" to="/login"><h1>Go To App!</h1></Link>
         </div>
     </>
     )

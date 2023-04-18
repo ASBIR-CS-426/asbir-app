@@ -26,8 +26,6 @@ html {
 }
 
 .video-column-left {
-  /* float: left; */
-  /* padding-left: 1rem; */
   display: flex;
 }
 
@@ -36,8 +34,6 @@ video {
 }
 
 .video-column-right {
-  /* float: right; */
-  /* padding-right: 1rem; */
   display: flex;
 }
 
@@ -66,6 +62,12 @@ video {
   grid-template-rows: repeat(2, auto);
   grid-gap: 20px;
   padding: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .project-description-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .project-description-section > section {
@@ -128,4 +130,40 @@ video {
   text-align: center;
   background-color: #000d53;
   color: white;
+}
+
+.fixed-app-send {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  border: 0.1rem solid #ffffff; 
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.fixed-app-send > a {
+  text-decoration: none !important;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1.25rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.video-item {
+  width: 100%;
+  text-align: center;
+}
+
+.video-item > video {
+  width: 85%;
+}
+
+@media screen and (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
