@@ -29,14 +29,14 @@ let image_topic = new ROSLIB.Topic({
   messageType: 'sensor_msgs/CompressedImage'
 });
 
-const pointcloud_sub = () => {
-  let output;
-  pointcloud_topic.subscribe(function(message) {
-    // output = message.data;
-    console.log(message)
-  })
-  return output
-}
+// const pointcloud_sub = () => {
+//   let output;
+//   pointcloud_topic.subscribe(function(message) {
+//     // output = message.data;
+//     console.log(message)
+//   })
+//   return output
+// }
 
 let system_toggle_topic = new ROSLIB.Topic({
   ros: ros, 
@@ -52,49 +52,49 @@ let return_to_start_topic = new ROSLIB.Topic({
   isAdvertised: true
 })
 
-let pointcloud_topic = new ROSLIB.Topic({
-  ros: ros, 
-  name: '/D435i/depth/color/points',
-  messageType: 'sensor_msgs/PointCloud2',
-  isAdvertised: true
-});
+// let pointcloud_topic = new ROSLIB.Topic({
+//   ros: ros, 
+//   name: '/D435i/depth/color/points',
+//   messageType: 'sensor_msgs/PointCloud2',
+//   isAdvertised: true
+// });
 
-const pointcloud = async () => {
-  await delay(3000);
-  let viewer = new Viewer({
-    divID : 'viewer',
-    width : 800,
-    height : 600,
-    antialias : true
-  });
+// const pointcloud = async () => {
+//   await delay(3000);
+//   let viewer = new Viewer({
+//     divID : 'viewer',
+//     width : 800,
+//     height : 600,
+//     antialias : true
+//   });
   
-  // Setup a client to listen to TFs.
-  let tfClient = new ROSLIB.TFClient({
-    ros : ros,
-    angularThres : 0.01,
-    transThres : 0.01,
-    rate : 10.0,
-    fixedFrame : '/T265_odom_frame'
-  });
-  console.log(tfClient)
+//   // Setup a client to listen to TFs.
+//   let tfClient = new ROSLIB.TFClient({
+//     ros : ros,
+//     angularThres : 0.01,
+//     transThres : 0.01,
+//     rate : 10.0,
+//     fixedFrame : '/T265_odom_frame'
+//   });
+//   console.log(tfClient)
 
-  let cloudClient = new PointCloud2({
-      ros: ros,
-      tfClient: tfClient,
-      rootObject: viewer.scene,
-      topic: '/D435i/depth/color/points',
-      material: { size: 0.5, color: 0xffffff },
-      max_pts: 5000000,
-  });
-  console.log(cloudClient)
-  console.log(viewer.scene)
-  viewer.addObject(cloudClient);
-  viewer.addObject(new Grid);
-}
+//   let cloudClient = new PointCloud2({
+//       ros: ros,
+//       tfClient: tfClient,
+//       rootObject: viewer.scene,
+//       topic: '/D435i/depth/color/points',
+//       material: { size: 0.5, color: 0xffffff },
+//       max_pts: 5000000,
+//   });
+//   console.log(cloudClient)
+//   console.log(viewer.scene)
+//   viewer.addObject(cloudClient);
+//   viewer.addObject(new Grid);
+// }
 
-pointcloud();
-// image_sub();
-pointcloud_sub();
+// pointcloud();
+// // image_sub();
+// pointcloud_sub();
 
 const toggleCameraFeed = () => {
   if (image_on === true) {

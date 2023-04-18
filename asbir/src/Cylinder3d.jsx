@@ -44,13 +44,13 @@ let ros = new ROSLIB.Ros({
 
 let pose_topic = new ROSLIB.Topic({
   ros: ros, 
-  name: '/T265/odom/sample',
+  name: '/T265/pose/sample',
   messageType: 'nav_msgs/msg/Odometry'
 });
 
 const logPose = () => {
   pose_topic.subscribe(function(message) {
-    // console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
+    console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
     let x_temp = message.pose.pose.orientation.x
     let y_temp = message.pose.pose.orientation.y
     let z_temp = message.pose.pose.orientation.z
