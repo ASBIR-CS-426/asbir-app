@@ -126,6 +126,16 @@ const ToggleConnect = () => {
               
             }}><b>Run ASBIR Launch File</b></button>  <br />
 
+            <button style={{backgroundColor: "blue"}}
+            id='toggle_btn' onClick={() =>{
+              let toggle_msg = new ROSLIB.Message({data : true}); 
+              system_toggle_topic.publish(toggle_msg)
+              document.getElementById('toggle_btn').disabled = true;
+              setClicked(1);
+              console.log("HELLO")
+              
+            }}><b>Run ASBIR Launch File</b></button>  <br />
+
             {/* <button onClick={() => {
               image_topic.unsubscribe()
             }}>Toggle Camera Feed</button> */}
@@ -163,7 +173,7 @@ const ToggleConnect = () => {
               //   console.log('Connection to websocket server closed.');
               // });
               
-            }}><b>Return ASBIR Back To Starting Location</b></button>  <br />
+            }}><b>Return ASBIR Back To Starting Location</b></button><br />
             
         </div>
     );

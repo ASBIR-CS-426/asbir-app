@@ -3,8 +3,8 @@ import { StatusCard } from "./StatusCard";
 import ROSLIB from 'roslib'
 
 import './Sidebar.css'
-// import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-// import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -129,7 +129,7 @@ export const Sidebar = () => {
         }}
         onClick={toggleSidebar}
       >
-        {/* {isOpen ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />} */}
+        {isOpen ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />}
       </button>
       <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
         {renderCards()}
