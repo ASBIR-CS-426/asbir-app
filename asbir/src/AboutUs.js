@@ -21,10 +21,10 @@ export const AboutUs = () => {
     <>
         <div className="about-section">
             <div className='fixed-app-send'>
-                <Link className="link-btn" to="/login"><h3>Go To App!</h3></Link>
+                <Link alt='link that sends a user to the login page' className="link-btn" to="/login"><h3>Go To App!</h3></Link>
             </div>
             <h1 className='about-us-header'>About ASBIR (Team 03)</h1>
-            <h3>CS 426 Senior Project in Computer Science, Spring 2023, at UNR, CSE Department</h3>
+            <h2>CS 426 Senior Project in Computer Science, Spring 2023, at UNR, CSE Department</h2>
         </div>
         <h2 style={{ textAlign: "center", fontSize: "2.5rem" }}>Meet the team!</h2>
         <div className="row">
@@ -172,7 +172,7 @@ export const AboutUs = () => {
             </div>
         </div>
         <div className="about-us-footer">
-            <Link className="link-btn" to="/login"><h1>Go To App!</h1></Link>
+            <Link alt='link that sends a user to the login page' className="link-btn" to="/login"><h1>Go To App!</h1></Link>
         </div>
     </>
     )
