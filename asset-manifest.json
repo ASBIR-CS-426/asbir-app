@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/asbir-app/static/css/main.3a178bac.css",
-    "main.js": "/asbir-app/static/js/main.230027f5.js",
+    "main.js": "/asbir-app/static/js/main.ce2c89d3.js",
     "static/media/brock.JPG": "/asbir-app/static/media/brock.fc4b01e107eaad26b6cb.JPG",
     "static/media/Brock_Pose.mp4": "/asbir-app/static/media/Brock_Pose.93fc2911ce8ba6302302.mp4",
     "static/media/ASBIR_Livestream.mp4": "/asbir-app/static/media/ASBIR_Livestream.3e9a5fab651480140317.mp4",
@@ -14,10 +14,10 @@
     "static/media/dave.jpg": "/asbir-app/static/media/dave.447c1bd58ee988b1ca78.jpg",
     "index.html": "/asbir-app/index.html",
     "main.3a178bac.css.map": "/asbir-app/static/css/main.3a178bac.css.map",
-    "main.230027f5.js.map": "/asbir-app/static/js/main.230027f5.js.map"
+    "main.ce2c89d3.js.map": "/asbir-app/static/js/main.ce2c89d3.js.map"
   },
   "entrypoints": [
     "static/css/main.3a178bac.css",
-    "static/js/main.230027f5.js"
+    "static/js/main.ce2c89d3.js"
   ]
 }
