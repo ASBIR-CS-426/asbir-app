@@ -10,6 +10,8 @@ import la from './assets/la.jpg'
 import devrin from './assets/devrin.jpg'
 import ASBIR_Model from './assets/ASBIR_Model.mp4'
 import ASBIR_Livestream from './assets/ASBIR_Livestream.mp4'
+import Brock_Pose from './assets/Brock_Pose.mp4'
+import ASBIR_Pose from './assets/VideoOfPoseProjection.mp4'
 
 import { Link } from "react-router-dom"
 
@@ -97,25 +99,6 @@ export const AboutUs = () => {
 
         </div>
 
-        {/* <div className='row' style={{paddingBottom : "1.25rem", paddingTop: "1.25rem", display: "flex", flexDirection: "row", gap: "1.5%", justifyContent: "center"}}>
-            <div className='video-column-left'>
-                <div className='row' style={{textAlign: 'center'}}>
-                    <h1>Our first time getting the video livestream to work!</h1>
-                    <video controls autoPlay loop muted>
-                        <source src={ASBIR_Livestream} type="video/mp4"></source>
-                    </video>
-                </div>
-            </div>
-            <div className='video-column-right'>
-            <div className='row' style={{textAlign: 'center'}}>
-                    <h1>Our first time getting the 3D Model to work!</h1>
-                    <video controls autoPlay loop muted>
-                        <source src={ASBIR_Model} type="video/mp4"></source>
-                    </video>
-                </div>
-            </div>
-        </div> */}
-
         <div class="video-grid">
             <div class="video-item">
                 <h1>Our first time getting the video livestream to work!</h1>
@@ -127,6 +110,18 @@ export const AboutUs = () => {
                 <h1>Our first time getting the 3D Model to work!</h1>
                 <video controls autoPlay loop muted>
                     <source src={ASBIR_Model} type="video/mp4"></source>
+                </video>
+            </div>
+            <div class="video-item">
+                <h1>Brock playing with ASBIR</h1>
+                <video controls autoPlay loop muted>
+                    <source src={Brock_Pose} type="video/mp4"></source>
+                </video>
+            </div>
+            <div class="video-item">
+                <h1>The pose of ASBIR while Brock is moving it</h1>
+                <video controls autoPlay loop muted>
+                    <source src={ASBIR_Pose} type="video/mp4"></source>
                 </video>
             </div>
         </div>
