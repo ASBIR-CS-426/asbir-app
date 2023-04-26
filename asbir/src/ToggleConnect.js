@@ -116,36 +116,46 @@ const ToggleConnect = () => {
 
     return (
         <div>
-            <button style={{backgroundColor: (clicked ? "yellow" : "green")}}
-            id='toggle_btn' onClick={() =>{
-              let toggle_msg = new ROSLIB.Message({data : true}); 
-              system_toggle_topic.publish(toggle_msg)
-              document.getElementById('toggle_btn').disabled = true;
-              setClicked(1);
-              console.log("HELLO")
-              
-            }}><b>Run ASBIR Launch File</b></button>  <br />
+            <div className='toggle_row'>
+              <button style={{backgroundColor: (clicked ? "yellow" : "green")}}
+              id='toggle_btn' onClick={() =>{
+                let toggle_msg = new ROSLIB.Message({data : true}); 
+                system_toggle_topic.publish(toggle_msg)
+                document.getElementById('toggle_btn').disabled = true;
+                setClicked(1);
+                console.log("HELLO")
+                
+              }}><b>Run ASBIR Launch File</b></button>  <br />
 
-            <button style={{backgroundColor: "blue"}}
-            id='toggle_btn' onClick={() =>{
-              let toggle_msg = new ROSLIB.Message({data : true}); 
-              system_toggle_topic.publish(toggle_msg)
-              document.getElementById('toggle_btn').disabled = true;
-              setClicked(1);
-              console.log("HELLO")
-              
-            }}><b>Run ASBIR Launch File</b></button>  <br />
+              <button style={{backgroundColor: "blue"}}
+              id='toggle_btn' onClick={() =>{
+                let toggle_msg = new ROSLIB.Message({data : true}); 
+                system_toggle_topic.publish(toggle_msg)
+                document.getElementById('toggle_btn').disabled = true;
+                setClicked(1);
+                console.log("HELLO")
+                
+              }}><b>Run ASBIR Launch File</b></button>  <br />
+            </div>
 
             {/* <button onClick={() => {
               image_topic.unsubscribe()
             }}>Toggle Camera Feed</button> */}
-            <div className='image-wrapper' style={{paddingTop: '5rem', hover: 'cursor'}}onClick={toggleCameraFeed}>
-              <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+            <div className='toggle_row'>
+              <div className='image-wrapper' style={{hover: 'cursor'}}onClick={toggleCameraFeed}>
+                <h3>Raw Image</h3>
+                <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+              </div>
+
+              <div className='image-wrapper' style={{hover: 'cursor'}}onClick={toggleCameraFeed}>
+                <h3>Segmented Image</h3>
+                <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+              </div>
             </div>
             
             <div id="viewer"></div>
 
-            <button style={{backgroundColor: "red"}} onClick={() =>{
+            <button style={{backgroundColor: "red", marginTop: "2rem"}} onClick={() =>{
               let return_msg = new ROSLIB.Message({
                 header : {
                   stamp : {

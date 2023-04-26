@@ -33,7 +33,7 @@ export const Dashboard = () => {
                 <div className='Dashboard'>
                     <Sidebar />
                     <Navbar {...NavBarProps}></Navbar>
-                    <h1>Dashboard</h1>
+                    <h1 style={{marginBottom: "5rem"}}>Dashboard</h1>
                     <ToggleConnect />
                 </div>
                 <div className="footer">
