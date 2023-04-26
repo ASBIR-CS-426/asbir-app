@@ -96,7 +96,7 @@ function MyRotatingBox() {
 export default function Cylinder3d() {
   return (
     <div style={{height: "80vh", paddingBottom: "4rem"}}>
-      <button onClick={() => {
+      {/* <button onClick={() => {
         X += 0.1;
       }}>Change X Rotation</button>
       <button onClick={() => {
@@ -104,7 +104,7 @@ export default function Cylinder3d() {
       }}>Change Y Rotation</button>
       <button onClick={() => {
         Z += 0.1;
-      }}>Change Z Rotation</button>
+      }}>Change Z Rotation</button> */}
       <Canvas style={{}}>
         {/* <group position={[0, 0, 0]}>
           <MyRotatingBox />
