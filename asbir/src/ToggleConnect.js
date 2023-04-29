@@ -117,7 +117,7 @@ const ToggleConnect = () => {
     return (
         <div>
             <div className='toggle_row'>
-              <button style={{backgroundColor: (clicked ? "yellow" : "green")}}
+              <button style={{backgroundColor: (clicked ? "yellow" : "green"), color: (clicked ? "black" : "white")}}
               id='toggle_btn' onClick={() =>{
                 let toggle_msg = new ROSLIB.Message({data : true}); 
                 system_toggle_topic.publish(toggle_msg)
@@ -127,7 +127,7 @@ const ToggleConnect = () => {
                 
               }}><b>Run ASBIR Launch File</b></button>  <br />
 
-              <button style={{backgroundColor: "blue"}}
+              <button style={{backgroundColor: "blue", color: "white"}}
               id='toggle_btn' onClick={() =>{
                 let toggle_msg = new ROSLIB.Message({data : true}); 
                 system_toggle_topic.publish(toggle_msg)
@@ -155,7 +155,7 @@ const ToggleConnect = () => {
             
             <div id="viewer"></div>
 
-            <button style={{backgroundColor: "red", marginTop: "2rem"}} onClick={() =>{
+            <button style={{backgroundColor: "red", marginTop: "2rem", color: "white"}} onClick={() =>{
               let return_msg = new ROSLIB.Message({
                 header : {
                   stamp : {
