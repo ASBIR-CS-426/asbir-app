@@ -17,11 +17,13 @@ import { Link } from "react-router-dom"
 
 
 export const AboutUs = () => {
+    let string = (localStorage.getItem("name") ? "/dashboard" : "/login");
     return (
     <>
         <div className="about-section">
             <div className='fixed-app-send'>
-                <Link alt='link that sends a user to the login page' className="link-btn" to="/login"><h3>Go To App!</h3></Link>
+                
+                <Link alt='link that sends a user to the login page' className="link-btn" to={string}><h3>Go To App!</h3></Link>
             </div>
             <h1 className='about-us-header'>About ASBIR (Team 03)</h1>
             <h2>CS 426 Senior Project in Computer Science, Spring 2023, at UNR, CSE Department</h2>
@@ -172,7 +174,7 @@ export const AboutUs = () => {
             </div>
         </div>
         <div className="about-us-footer">
-            <Link alt='link that sends a user to the login page' className="link-btn" to="/login"><h1>Go To App!</h1></Link>
+            <Link alt='link that sends a user to the login page' className="link-btn" to={string}><h1>Go To App!</h1></Link>
         </div>
     </>
     )

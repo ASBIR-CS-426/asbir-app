@@ -142,14 +142,14 @@ const ToggleConnect = () => {
               image_topic.unsubscribe()
             }}>Toggle Camera Feed</button> */}
             <div className='toggle_row'>
-              <div className='image-wrapper' style={{hover: 'cursor'}}onClick={toggleCameraFeed}>
+              <div>
                 <h3>Raw Image</h3>
-                <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+                <img className='image-wrapper' alt='placeholder for ASBIR' id="my_image" src={placeholder} style={{hover: 'cursor'}}onClick={toggleCameraFeed}></img>
               </div>
 
-              <div className='image-wrapper' style={{hover: 'cursor'}}onClick={toggleCameraFeed}>
+              <div>
                 <h3>Segmented Image</h3>
-                <img alt='placeholder for ASBIR' id="my_image" src={placeholder}></img>
+                <img className='image-wrapper' alt='placeholder for ASBIR' id="my_image" src={placeholder} style={{hover: 'cursor'}}onClick={toggleCameraFeed}></img>
               </div>
             </div>
             

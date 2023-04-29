@@ -4,6 +4,7 @@ import Cylinder3d from "./Cylinder3d";
 
 import './ASBIRModel.css'
 import { Sidebar } from './Sidebar';
+import { Navigate } from 'react-router-dom';
 
 const NavBarProps = {
     firstLink: '/dashboard',
@@ -16,11 +17,18 @@ const NavBarProps = {
 
 export const ASBIRModel = () => {
 
-    return (
-        <div className='ASBIRModel'>
-            <Sidebar />
-            <Navbar {...NavBarProps} />
-            <Cylinder3d/>
-        </div>
-    )
+    if (!!localStorage.getItem("name")) {
+        return (
+            <div className='ASBIRModel'>
+                <Sidebar />
+                <Navbar {...NavBarProps} />
+                <Cylinder3d/>
+            </div>
+        )
+    }
+    else {
+        return (
+            <Navigate to="/" replace/>
+        )
+    }
 };

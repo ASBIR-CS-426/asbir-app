@@ -9,16 +9,16 @@ import './Sidebar.css'
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 let initialCardData = {
-  "Model": { status: "green", title: "Model", description: "This is a description of the first card.", count: 0 },
-  "Graph": { status: "green", title: "Graph", description: "This is a description of the first card.", count: 0 },
-  "BuildPath": { status: "green", title: "BuildPath", description: "This is a description of the first card.", count: 0 },
-  "PathController": { status: "green", title: "PathController", description: "This is a description of the first card.", count: 0 },
-  "PotentialField": { status: "green", title: "PotentialField", description: "This is a description of the first card.", count: 0 },
-  "StatusListener": { status: "green", title: "StatusListener", description: "This is a description of the first card.", count: 0 },
-  "D400/D400": { status: "green", title: "D400 Camera", description: "This is a description of the first card.", count: 0 },
-  "T265/T265": { status: "green", title: "T265 Camera", description: "This is a description of the first card.", count: 0 },
-  "rosbridge_websocket": { status: "green", title: "rosbridge_websocket", description: "This is a description of the first card.", count: 0 },
-  "ROSAPI": { status: "green", title: "ROSAPI", description: "This is a description of the first card.", count: 0 },
+  "Model": { status: "green", title: "Model", description: "This node corresponds to the actual ASBIR bot itself", count: 0 },
+  "Graph": { status: "green", title: "Graph", description: "This node corresponds to the graph node that ASBIR creates", count: 0 },
+  "BuildPath": { status: "green", title: "BuildPath", description: "This node corresponds to ASBIR's path building algorithm", count: 0 },
+  "PathController": { status: "green", title: "PathController", description: "This node corresponds to the controller module that oversees the paths", count: 0 },
+  "PotentialField": { status: "green", title: "PotentialField", description: "This node corresponds to the potential field module that ASBIR uses to navigate", count: 0 },
+  "StatusListener": { status: "green", title: "StatusListener", description: "This node corresponds to the status listener module that is the backbone of the status checker", count: 0 },
+  "D400/D400": { status: "green", title: "D400 Camera", description: "This node corresponds to the D400 camera", count: 0 },
+  "T265/T265": { status: "green", title: "T265 Camera", description: "This node corresponds to the T265 camera", count: 0 },
+  "rosbridge_websocket": { status: "green", title: "rosbridge_websocket", description: "This node corresponds to the rosbride module that is used for web <-> ros communication", count: 0 },
+  "ROSAPI": { status: "green", title: "ROSAPI", description: "This node corresponds to the ROSAPI", count: 0 },
 };
 
 export const Sidebar = () => {
