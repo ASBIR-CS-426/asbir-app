@@ -12,6 +12,7 @@ import ASBIR_Model from './assets/ASBIR_Model.mp4'
 import ASBIR_Livestream from './assets/ASBIR_Livestream.mp4'
 import Brock_Pose from './assets/Brock_Pose.mp4'
 import ASBIR_Pose from './assets/VideoOfPoseProjection.mp4'
+import Deep_Learning from './assets/Deep_Learning_Model.mp4';
 
 import { Link } from "react-router-dom"
 
@@ -124,6 +125,12 @@ export const AboutUs = () => {
                 <h1>The pose of ASBIR while Brock is moving it</h1>
                 <video controls autoPlay loop muted>
                     <source src={ASBIR_Pose} type="video/mp4"></source>
+                </video>
+            </div>
+            <div class="video-item">
+                <h1>Our Deep Learning Model in Action!</h1>
+                <video controls autoPlay loop muted>
+                    <source src={Deep_Learning} type="video/mp4"></source>
                 </video>
             </div>
         </div>
