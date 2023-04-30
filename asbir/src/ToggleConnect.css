@@ -9,3 +9,12 @@
     justify-content: center;
     gap: 2rem;
 }
+
+.toggle_row_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    padding-bottom: 4rem;
+}
