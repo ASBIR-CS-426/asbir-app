@@ -16,6 +16,7 @@ let initialCardData = {
   "PotentialField": { status: "green", title: "PotentialField", description: "This node corresponds to the potential field module that ASBIR uses to navigate", count: 0 },
   "StatusListener": { status: "green", title: "StatusListener", description: "This node corresponds to the status listener module that is the backbone of the status checker", count: 0 },
   "D400/D400": { status: "green", title: "D400 Camera", description: "This node corresponds to the D400 camera", count: 0 },
+  "image_publisher" : { status: "green", title: "DeepLearningModel", description: "This node corresponds to ASBIR's Deep Learning Segmentation Model", count: 0 },
   "T265/T265": { status: "green", title: "T265 Camera", description: "This node corresponds to the T265 camera", count: 0 },
   "rosbridge_websocket": { status: "green", title: "rosbridge_websocket", description: "This node corresponds to the rosbride module that is used for web <-> ros communication", count: 0 },
   "ROSAPI": { status: "green", title: "ROSAPI", description: "This node corresponds to the ROSAPI", count: 0 },
@@ -48,41 +49,7 @@ export const Sidebar = () => {
     // console.log("Getting topics...", result);
   });
 
-  // const node_sub = () => {
-  //   node_topic.subscribe(function(message) {
-  //     let output = message.data;
-  //     output = output.replaceAll("'", "");
-  //     output = output.toLowerCase();
-  //     output = output.substring(1, output.length-1);
-  //     output = output.split(', ')
-  //     setNodeTopicOutput(output);
-  //     setChecker(2);
-  //   })
-  // }
-
-  // let node_topic = new ROSLIB.Topic({
-  //   ros: ros, 
-  //   name: '/activeNodes',
-  //   messageType: 'std_msgs/String'
-  // });
-
-  // node_sub();
-
-  // const topic_sub = () => {
-  //   node_topic.subscribe(function(message) {
-  //     console.log('Received message on ' + image_topic.name);
-  //   })
-  // }
-
-  // let node_topic = new ROSLIB.Topic({
-  //   ros: ros, 
-  //   name: '/activeNodes',
-  //   messageType: 'std_msgs/String'
-  // });
-
-  // document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
-
-  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400/D400", "T265/T265", "rosbridge_websocket", "ROSAPI"]
+  const cardData = ["Model", "Graph", "BuildPath", "PathController", "PotentialField", "D400/D400", "image_publisher", "T265/T265", "rosbridge_websocket", "ROSAPI"]
 
   const renderCards = () => {
     return cardData.map((card, index) => {
@@ -97,8 +64,8 @@ export const Sidebar = () => {
         }
         else {
           initialCardData[card].status = "yellow";
+          initialCardData[card].count = initialCardData[card].count + 1;
         }
-        initialCardData[card].count = initialCardData[card].count + 1;
         // if (initialCardData[card].status === "yellow" || initialCardData[card].status === "red") {
         //   initialCardData[card].status = "red";
         // }
