@@ -1,8 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import ROSLIB from 'roslib'
-import { PointCloud2, Viewer, Grid } from 'ros3d';
 import placeholder from './assets/video-placeholder.png'
-import * as THREE from 'three';
 
 import './ToggleConnect.css'
 
@@ -16,27 +14,17 @@ let ros = new ROSLIB.Ros({
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-const image_sub = () => {
-  image_topic.subscribe(function(message) {
-    console.log('Received message on ' + image_topic.name);
-    document.getElementById('my_image').src = "data:image/jpg;base64," + message.data;
-  })
-}
-
 let image_topic = new ROSLIB.Topic({
   ros: ros, 
-  name: '/CompressedImage',
-  messageType: 'sensor_msgs/CompressedImage'
+  name: '/D400/color/image_raw/compressed',
+  messageType: 'sensor_msgs/msg/CompressedImage'
 });
 
-// const pointcloud_sub = () => {
-//   let output;
-//   pointcloud_topic.subscribe(function(message) {
-//     // output = message.data;
-//     console.log(message)
-//   })
-//   return output
-// }
+let segmented_image_topic = new ROSLIB.Topic({
+  ros: ros, 
+  name: '/output_compress',
+  messageType: 'sensor_msgs/msg/CompressedImage'
+});
 
 let system_toggle_topic = new ROSLIB.Topic({
   ros: ros, 
@@ -50,7 +38,7 @@ let return_to_start_topic = new ROSLIB.Topic({
   name: 'targetPoint',
   messageType: 'geometry_msgs/PointStamped',
   isAdvertised: true
-})
+});
 
 // let pointcloud_topic = new ROSLIB.Topic({
 //   ros: ros, 
@@ -96,16 +84,41 @@ let return_to_start_topic = new ROSLIB.Topic({
 // // image_sub();
 // pointcloud_sub();
 
+const image_sub = () => {
+  image_topic.subscribe(function(message) {
+    console.log('Received message on ' + image_topic.name);
+    document.getElementById('image').src = "data:image/jpg;base64," + message.data;
+  })
+}
+
+const segmented_image_sub = () => {
+  segmented_image_topic.subscribe(function(message) {
+    console.log('Received message on ' + segmented_image_topic.name);
+    document.getElementById('segmented_image').src = "data:image/jpg;base64," + message.data;
+  })
+}
+
 const toggleCameraFeed = () => {
   if (image_on === true) {
     console.log('Image Off!')
+
     image_topic.unsubscribe();
-    document.getElementById('my_image').src = placeholder;
+    segmented_image_topic.unsubscribe();
+
+    document.getElementById('image').src = placeholder;
+    document.getElementById('segmented_image').src = placeholder;
+
+
     image_on = false;
   }
   else {
     console.log('Image On!')
+
+
     image_sub(ros);
+    segmented_image_sub(ros);
+
+
     image_on = true;
   }
 }
@@ -144,12 +157,12 @@ const ToggleConnect = () => {
             <div className='toggle_row'>
               <div>
                 <h3>Raw Image</h3>
-                <img className='image-wrapper' alt='placeholder for ASBIR' id="my_image" src={placeholder} style={{hover: 'cursor'}}onClick={toggleCameraFeed}></img>
+                <img className='image-wrapper' alt='placeholder for ASBIR' id="image" src={placeholder} style={{hover: 'cursor', width: 712, height: 512}}onClick={toggleCameraFeed}></img>
               </div>
 
               <div>
                 <h3>Segmented Image</h3>
-                <img className='image-wrapper' alt='placeholder for ASBIR' id="my_image" src={placeholder} style={{hover: 'cursor'}}onClick={toggleCameraFeed}></img>
+                <img className='image-wrapper' alt='placeholder for ASBIR' id="segmented_image" src={placeholder} style={{hover: 'cursor', width: 712, height: 512}}onClick={toggleCameraFeed}></img>
               </div>
             </div>
             

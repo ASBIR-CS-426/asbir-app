@@ -13,6 +13,7 @@ import ASBIR_Livestream from './assets/ASBIR_Livestream.mp4'
 import Brock_Pose from './assets/Brock_Pose.mp4'
 import ASBIR_Pose from './assets/VideoOfPoseProjection.mp4'
 import Deep_Learning from './assets/Deep_Learning_Model.mp4';
+import Deep_Web from './assets/Deep_Web.mp4';
 
 import { Link } from "react-router-dom"
 
@@ -128,9 +129,15 @@ export const AboutUs = () => {
                 </video>
             </div>
             <div class="video-item">
-                <h1>Our Deep Learning Model in Action!</h1>
+                <h1>Our Deep Learning Model in Action in RViz!</h1>
                 <video controls autoPlay loop muted>
                     <source src={Deep_Learning} type="video/mp4"></source>
+                </video>
+            </div>
+            <div class="video-item">
+                <h1>Our Deep Learning Model in Action on the UI!</h1>
+                <video controls autoPlay loop muted>
+                    <source src={Deep_Web} type="video/mp4"></source>
                 </video>
             </div>
         </div>

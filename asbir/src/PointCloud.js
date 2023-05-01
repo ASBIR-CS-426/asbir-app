@@ -1,57 +1,82 @@
 import React, { useEffect, useRef } from 'react';
 import ROSLIB from 'roslib';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-const PointCloud = ({ rosUrl, rosTopic }) => {
+export const PointCloud = ({ ros, topic, maxPoints = 100000, pointSize = 0.1, cameraPosition = { x: 0, y: 0, z: 2 }, backgroundColor = 0x000000, width = 800, height = 600 }) => {
   const canvasRef = useRef(null);
-  const rendererRef = useRef(null);
-  const sceneRef = useRef(null);
-  const pointCloudRef = useRef(null);
 
   useEffect(() => {
-    const ros = new ROSLIB.Ros({ url: rosUrl });
-    const pointCloudSubscriber = new ROSLIB.Topic({
-      ros: ros,
-      name: rosTopic,
-      messageType: 'sensor_msgs/PointCloud2' // possibly change, ask Tanner
-    });
-
     const canvas = canvasRef.current;
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    rendererRef.current = renderer;
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.z = 5;
-    const pointCloud = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ size: 0.1 }));
-    scene.add(pointCloud);
-    pointCloudRef.current = pointCloud;
+    const renderer = new THREE.WebGLRenderer({ canvas });
 
-    // Subscribe to point cloud topic
-    pointCloudSubscriber.subscribe(pointCloudMessage => {
-      const geometry = new THREE.BufferGeometry();
-      const positions = new Float32Array(pointCloudMessage.width * pointCloudMessage.height * 3);
-      let i = 0;
-      for (let row = 0; row < pointCloudMessage.height; row++) {
-        for (let col = 0; col < pointCloudMessage.width; col++) {
-          const offset = (row * pointCloudMessage.row_step) + (col * pointCloudMessage.point_step);
-          positions[i++] = pointCloudMessage.data[offset];
-          positions[i++] = pointCloudMessage.data[offset + 1];
-          positions[i++] = pointCloudMessage.data[offset + 2];
-        }
-      }
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      pointCloud.geometry.dispose();
-      pointCloud.geometry = geometry;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(backgroundColor);
+
+    const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
+    camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableZoom = true;
+    controls.enablePan = false;
+
+    const material = new THREE.PointsMaterial({ size: pointSize });
+
+    const pointCloud = new THREE.Points(new THREE.BufferGeometry(), material);
+    scene.add(pointCloud);
+
+    const listener = new ROSLIB.Topic({
+      ros,
+      name: topic,
+      messageType: 'sensor_msgs/PointCloud2'
     });
+
+    console.log(topic)
+
+    let pointCount = 0;
+    const buffer = new ArrayBuffer(maxPoints * 4 * 4); // Allocate buffer for 4-byte floats
+    const view = new DataView(buffer);
+
+    listener.subscribe((msg) => {
+      const numPoints = msg.width * msg.height;
+
+      if (numPoints <= maxPoints) {
+        for (let i = 0; i < numPoints; i++) {
+          const byteOffset = i * 16;
+          view.setFloat32(byteOffset, msg.data[i * 4], true); // X coordinate
+          view.setFloat32(byteOffset + 4, msg.data[i * 4 + 1], true); // Y coordinate
+          view.setFloat32(byteOffset + 8, msg.data[i * 4 + 2], true); // Z coordinate
+          view.setUint8(byteOffset + 12, 255); // Alpha channel (always 255)
+        }
+
+        const data = new Float32Array(buffer, 0, numPoints * 4);
+        console.log(data)
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(data, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(numPoints * 3).fill(1), 3));
+        geometry.computeBoundingBox();
+
+        pointCloud.geometry.dispose();
+        pointCloud.geometry = geometry;
+
+        pointCount = numPoints;
+      }
+    });
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    };
+
+    animate();
 
     return () => {
-      pointCloudSubscriber.unsubscribe();
-      scene.remove(pointCloudRef.current);
-      rendererRef.current.dispose();
+      listener.unsubscribe();
+      scene.remove(pointCloud);
     };
-  }, [rosUrl, rosTopic]);
+  }, []);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} width={width} height={height} />;
 };
+

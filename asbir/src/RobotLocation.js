@@ -2,8 +2,9 @@ import React from 'react';
 
 import Navbar from './Navbar'
 import { RobotLocationChart } from './RobotLocationChart';
-import { StatusCard } from './StatusCard';
+import ROSLIB from 'roslib'
 import { Sidebar } from './Sidebar';
+import { PointCloud } from './PointCloud';
 
 import { Link } from "react-router-dom"
 
@@ -19,7 +20,6 @@ const NavBarProps = {
     thirdInfo: 'ASBIR Model',
 }
 
-
 export const RobotLocation = () => {
     return (
         <>
@@ -28,7 +28,8 @@ export const RobotLocation = () => {
             <Sidebar />
             <Navbar {...NavBarProps} />
             <h1>Robot Location</h1>
-            {/* <RobotLocationChart/> */}
+            {/* <PointCloud {...pointCloudProps}/> */}
+            <RobotLocationChart/>
         </div>
         <div className="footer">
             <Link className="link-btn" to="/about-us">Learn More</Link>
