@@ -30,6 +30,7 @@ export const RobotLocation = () => {
             <h1>Robot Location</h1>
             {/* <PointCloud {...pointCloudProps}/> */}
             <RobotLocationChart/>
+            {/* <PointCloud /> */}
         </div>
         <div className="footer">
             <Link className="link-btn" to="/about-us">Learn More</Link>

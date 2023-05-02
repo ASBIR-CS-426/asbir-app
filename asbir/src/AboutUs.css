@@ -25,6 +25,13 @@ html {
   padding: 0 0.5rem;
 }
 
+.special-column {
+  float: left;
+  width: 25%;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
 .video-column-left {
   display: flex;
 }

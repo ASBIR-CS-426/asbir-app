@@ -8,6 +8,7 @@ import tanner from './assets/tanner.jpg'
 import dave from './assets/dave.jpg'
 import la from './assets/la.jpg'
 import devrin from './assets/devrin.jpg'
+import chuong from './assets/chuong.jpg'
 import ASBIR_Model from './assets/ASBIR_Model.mp4'
 import ASBIR_Livestream from './assets/ASBIR_Livestream.mp4'
 import Brock_Pose from './assets/Brock_Pose.mp4'
@@ -144,47 +145,61 @@ export const AboutUs = () => {
 
         <h2 style={{ textAlign: "center", fontSize: "2.5rem" }}>Meet the advisors!</h2>
         <div className="row">
-            <div className="column">
-            <div className="image-card">
-                <img src={dave} alt="Headshot of Dave" style={{ width: "100%" }} />
-                <div className="container">
-                <h2>David Feil-Seifer</h2>
-                <h3>Instructor for CS 426 (Professor for the UNR CSE Department)</h3>
-                <p style={{fontSize : "1.25rem"}}>Dave (Dr. Feil-Seifer) is the other primary instructor for the CS 426 teaching team and is an avid roboticist</p>
-                <p>dave@cse.unr.edu</p>
-                <p>
-                    <button className="button" onClick={() => {window.location.href = "mailto:dave@cse.unr.edu"}}>Contact Dave</button>
-                </p>
+            <div className="special-column">
+                <div className="image-card">
+                    <img src={dave} alt="Headshot of Dave" style={{ width: "100%" }} />
+                    <div className="container">
+                    <h2>David Feil-Seifer</h2>
+                    <h3>Instructor for CS 426 (Professor - UNR CSE Department)</h3>
+                    <p style={{fontSize : "1.25rem"}}>Dave (Dr. Feil-Seifer) is the other primary instructor for the CS 426 teaching team and is an avid roboticist</p>
+                    <p>dave@cse.unr.edu</p>
+                    <p>
+                        <button className="button" onClick={() => {window.location.href = "mailto:dave@cse.unr.edu"}}>Contact Dave</button>
+                    </p>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div className="column">
-            <div className="image-card">
-                <img src={la} alt="Headshot of Dr. La" style={{ width: "100%" }} />
-                <div className="container">
-                <h2>Hung (Jim) La</h2>
-                <h3>Our External Advisor (Professor for the UNR CSE Department)</h3>
-                <p style={{fontSize : "1.25rem"}}>Dr. La is our external advisor for our project and has helped immensely in all the devlopment of ASBIR</p>
-                <p>hla@unr.edu</p>
-                <p>
-                    <button className="button" onClick={() => {window.location.href = "mailto:hla@unr.edu"}}>Contact Dr. La</button>
-                </p>
+            <div className="special-column">
+                <div className="image-card">
+                    <img src={la} alt="Headshot of Dr. La" style={{ width: "100%" }} />
+                    <div className="container">
+                    <h2>Hung (Jim) La</h2>
+                    <h3>Our External Advisor (Professor - UNR CSE Department)</h3>
+                    <p style={{fontSize : "1.25rem"}}>Dr. La is our external advisor for our project and has helped immensely in all the devlopment of ASBIR</p>
+                    <p>hla@unr.edu</p>
+                    <p>
+                        <button className="button" onClick={() => {window.location.href = "mailto:hla@unr.edu"}}>Contact Dr. La</button>
+                    </p>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div className="column">
-            <div className="image-card">
-                <img src={devrin} alt="Devrin Lee Headshot" style={{ width: "100%" }} />
-                <div className="container">
-                <h2>Devrin Lee</h2>
-                <h3>Instructor for CS 426 (Lecturer for the UNR CSE Department)</h3>
-                <p style={{fontSize : "1.25rem"}}>Devrin is one of the primary instructors apart of the CS 426 team and has immense project management experience</p>
-                <p>dlee@unr.edu</p>
-                <p>
-                    <button className="button" onClick={() => {window.location.href = "mailto:dlee@unr.edu"}}>Contact Devrin</button>
-                </p>
+            <div className="special-column">
+                <div className="image-card">
+                    <img src={devrin} alt="Devrin Lee Headshot" style={{ width: "100%" }} />
+                    <div className="container">
+                    <h2>Devrin Lee</h2>
+                    <h3>Instructor for CS 426 (Lecturer - UNR CSE Department)</h3>
+                    <p style={{fontSize : "1.25rem"}}>Devrin is one of the primary instructors apart of the CS 426 team and has immense project management experience</p>
+                    <p>dlee@unr.edu</p>
+                    <p>
+                        <button className="button" onClick={() => {window.location.href = "mailto:dlee@unr.edu"}}>Contact Devrin</button>
+                    </p>
+                    </div>
                 </div>
             </div>
+            <div className="special-column">
+                <div className="image-card">
+                    <img src={chuong} alt="Chuong Le Headshot" style={{ width: "100%" }} />
+                    <div className="container">
+                    <h2>Chuong Le</h2>
+                    <h3>Grad Student in the ARA Lab (Our Lifesaver)</h3>
+                    <p style={{fontSize : "1.25rem"}}>Chuong was instrumental in the development of our project and helped us in so many ways!</p>
+                    <p>cle@nevada.unr.edu</p>
+                    <p>
+                        <button className="button" onClick={() => {window.location.href = "mailto:cle@nevada.unr.edu"}}>Contact Chuong</button>
+                    </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div className="about-us-footer">

@@ -6,8 +6,6 @@ import './ToggleConnect.css'
 
 let image_on = true;
 
-const ROS3D = window.ROS3D;
-
 let ros = new ROSLIB.Ros({
   url : 'ws://localhost:9090'
 });
@@ -40,60 +38,14 @@ let return_to_start_topic = new ROSLIB.Topic({
   isAdvertised: true
 });
 
-// let pointcloud_topic = new ROSLIB.Topic({
-//   ros: ros, 
-//   name: '/D435i/depth/color/points',
-//   messageType: 'sensor_msgs/PointCloud2',
-//   isAdvertised: true
-// });
-
-// const pointcloud = async () => {
-//   await delay(3000);
-//   let viewer = new Viewer({
-//     divID : 'viewer',
-//     width : 800,
-//     height : 600,
-//     antialias : true
-//   });
-  
-//   // Setup a client to listen to TFs.
-//   let tfClient = new ROSLIB.TFClient({
-//     ros : ros,
-//     angularThres : 0.01,
-//     transThres : 0.01,
-//     rate : 10.0,
-//     fixedFrame : '/T265_odom_frame'
-//   });
-//   console.log(tfClient)
-
-//   let cloudClient = new PointCloud2({
-//       ros: ros,
-//       tfClient: tfClient,
-//       rootObject: viewer.scene,
-//       topic: '/D435i/depth/color/points',
-//       material: { size: 0.5, color: 0xffffff },
-//       max_pts: 5000000,
-//   });
-//   console.log(cloudClient)
-//   console.log(viewer.scene)
-//   viewer.addObject(cloudClient);
-//   viewer.addObject(new Grid);
-// }
-
-// pointcloud();
-// // image_sub();
-// pointcloud_sub();
-
 const image_sub = () => {
   image_topic.subscribe(function(message) {
-    console.log('Received message on ' + image_topic.name);
     document.getElementById('image').src = "data:image/jpg;base64," + message.data;
   })
 }
 
 const segmented_image_sub = () => {
   segmented_image_topic.subscribe(function(message) {
-    console.log('Received message on ' + segmented_image_topic.name);
     document.getElementById('segmented_image').src = "data:image/jpg;base64," + message.data;
   })
 }
@@ -136,8 +88,6 @@ const ToggleConnect = () => {
                 system_toggle_topic.publish(toggle_msg)
                 document.getElementById('toggle_btn').disabled = true;
                 setClicked(1);
-                console.log("HELLO")
-                
               }}><b>Run ASBIR Launch File</b></button>
 
               <button style={{backgroundColor: "blue", color: "white"}}
@@ -146,8 +96,6 @@ const ToggleConnect = () => {
                 system_toggle_topic.publish(toggle_msg)
                 document.getElementById('toggle_btn').disabled = true;
                 setClicked(1);
-                console.log("HELLO")
-                
               }}><b>Placeholder Button for Tanner</b></button>
             </div>
 
@@ -203,20 +151,3 @@ const ToggleConnect = () => {
 }
 
 export default ToggleConnect
-
-
-
-// const logPose = () => {
-//   pose_topic.subscribe(function(message) {
-//     console.log('position:', message.pose.pose.position.x, message.pose.pose.position.y, message.pose.pose.position.z)
-//     console.log('orientation:', message.pose.pose.orientation.x, message.pose.pose.orientation.y, message.pose.pose.orientation.z, message.pose.pose.orientation.w)
-//   })
-// }
-
-// let pose_topic = new ROSLIB.Topic({
-//   ros: ros, 
-//   name: '/T265/odom/sample',
-//   messageType: 'nav_msgs/msg/Odometry'
-// });
-
-// logPose();
