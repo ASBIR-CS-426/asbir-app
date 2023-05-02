@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/asbir-app/static/css/main.bab972c0.css",
-    "main.js": "/asbir-app/static/js/main.37850f83.js",
+    "main.css": "/asbir-app/static/css/main.1e0b9ebd.css",
+    "main.js": "/asbir-app/static/js/main.edc65352.js",
     "static/media/Deep_Web.mp4": "/asbir-app/static/media/Deep_Web.b80e0651fce8bb6aad72.mp4",
     "static/media/Deep_Learning_Model.mp4": "/asbir-app/static/media/Deep_Learning_Model.b7e13c70e09b2ffe26df.mp4",
     "static/media/brock.JPG": "/asbir-app/static/media/brock.fc4b01e107eaad26b6cb.JPG",
@@ -15,11 +15,11 @@
     "static/media/la.jpg": "/asbir-app/static/media/la.f7531e68fb49c7774545.jpg",
     "static/media/dave.jpg": "/asbir-app/static/media/dave.447c1bd58ee988b1ca78.jpg",
     "index.html": "/asbir-app/index.html",
-    "main.bab972c0.css.map": "/asbir-app/static/css/main.bab972c0.css.map",
-    "main.37850f83.js.map": "/asbir-app/static/js/main.37850f83.js.map"
+    "main.1e0b9ebd.css.map": "/asbir-app/static/css/main.1e0b9ebd.css.map",
+    "main.edc65352.js.map": "/asbir-app/static/js/main.edc65352.js.map"
   },
   "entrypoints": [
-    "static/css/main.bab972c0.css",
-    "static/js/main.37850f83.js"
+    "static/css/main.1e0b9ebd.css",
+    "static/js/main.edc65352.js"
   ]
 }
